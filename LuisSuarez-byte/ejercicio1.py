@@ -1,1 +1,1 @@
-print("Lol") XD
+print("Lol")
