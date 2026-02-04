@@ -10,7 +10,6 @@ def validar_empleado(nombre):
             pos=i
             break
     return pos 
-
 def agregar_empleado():
     nombre=input("ingrese el nombre para saber si existe")
     pos=validar_empleado(nombre)
