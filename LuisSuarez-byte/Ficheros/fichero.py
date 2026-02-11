@@ -62,5 +62,22 @@ def agregarTarea():
     archivo.close()
     return
 
+def verTareas():
+
+    return
 
 
+
+def buscarTarea():
+    buscarID=str(input("Ingrese el ID de la tarea a buscar: "))
+
+
+
+
+    return
+
+
+
+
+
+agregarTarea()
