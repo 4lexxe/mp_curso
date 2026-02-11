@@ -1,0 +1,4 @@
+2025-09-01;Rayuela;Julio Cortázar;Ana Gutierrez;devuelto 
+2025-09-02;Cien años de soledad;Marquez;administrador;pendiente 
+2025-09-03;Rayuela;Julio Cortázar;Marco Lopez;retrasado 
+2025-09-03;El Extranjero;Albert Camus;Carlos Gómez;retrasado 
