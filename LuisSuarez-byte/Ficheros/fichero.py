@@ -29,8 +29,18 @@ Consideraciones:
 """
 
 def agregarTarea():
-    archivo=open("tareas.txt", "a", encoding="UTF-8")
-    tarea=1
+    tareas=verTarea()
+
+    if len(tareas)==0:
+            tarea=1
+    else:
+        tarea=int(tareas[-1][0]) + 1
+
+    
+    try:
+        archivo = open("tareas.txt", "r", encoding="UTF-8")
+    except FileNotFoundError:
+        return tarea
 
     dia=int(input("Ingrese fecha: "))
     while dia<1 or dia>31:
@@ -58,7 +68,6 @@ def agregarTarea():
 
     archivo.write(str(tarea)+"; "+fecha+"; "+horario+"; "+descripcion+"; Registrada\n")
 
-    tarea+=1
     archivo.close()
     return
 
@@ -87,7 +96,27 @@ def buscarTarea():
             print(f"Fecha y hora: {indice[1]}; {indice[2]}")
             print(f"Estado: {indice[4]}")
             return
+    
+    print("Tarea no encontrada.")
     return
 
-agregarTarea()
-buscarTarea()
+# Programa Principal
+bucle=True
+while bucle:
+    print("--- Administrador de Tareas ---")
+    print("1. Agregar tarea.")
+    print("2. Buscar tarea.")
+    print("3. Salir del programa.")
+
+    accion=int(input("Seleccione la acción a realizar: "))
+    while accion not in [1,2,3]:
+        print("Error. Acciòn inválida.")
+        accion=int(input("Seleccione la acción a realizar: "))
+    
+    if accion==1:
+        agregarTarea()
+    elif accion==2:
+        buscarTarea()
+    else:
+        print("Programa finalizado.")
+        bucle=False
