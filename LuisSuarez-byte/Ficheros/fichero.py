@@ -62,22 +62,32 @@ def agregarTarea():
     archivo.close()
     return
 
-def verTareas():
+def verTarea():
+    tarea=[]
 
-    return
+    # Abre el fichero para leerlo
+    archivo=open("tareas.txt", "r", encoding="UTF-8")
 
-
+    for linea in archivo:
+            campos = linea.strip().split(";") # strip() se encarga de quitar espacios, split() se encarga de separar segun lo que pida (";")
+            campos_limpios = [campo.strip() for campo in campos]
+            tarea.append(campos_limpios)
+    
+    archivo.close()
+    return tarea
 
 def buscarTarea():
     buscarID=str(input("Ingrese el ID de la tarea a buscar: "))
+    tareas=verTarea()
 
-
-
-
+    for indice in tareas:
+        if indice[0]==buscarID:
+            print("Tarea encontrada.")
+            print(f"Descripción: {indice[3]}")
+            print(f"Fecha y hora: {indice[1]}; {indice[2]}")
+            print(f"Estado: {indice[4]}")
+            return
     return
 
-
-
-
-
 agregarTarea()
+buscarTarea()
