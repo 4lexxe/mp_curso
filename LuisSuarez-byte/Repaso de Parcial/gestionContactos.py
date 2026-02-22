@@ -112,7 +112,7 @@ while avanzar:
 
     if accion==1:
         agregarContacto()
-    if accion==2:
+    elif accion==2:
         buscarContacto()
     else:
         avanzar=False
