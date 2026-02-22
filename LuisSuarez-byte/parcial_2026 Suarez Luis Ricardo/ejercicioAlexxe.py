@@ -260,13 +260,6 @@ def leerYlistar():
     archivo.close()
 
     return registrosExistentes
-    
-    
-
-
-
-
-    return
 
 "2) Listar los electrodomesticos vendidos en un año y mes ingresado por usted. Los clientes llamados administrador no se listan. Mostrar: "
 "   Producto - Cliente - Estado"
@@ -359,14 +352,14 @@ def eliminarRegistro(listaRegistros,codigo):
             print("Registro eliminado exitosamente.")
             break
 
-        if not encontrado:
-            print("No existe un regitro con ese código.")
-            return
+    if not encontrado:
+        print("No existe un regitro con ese código.")
+        return
         
-        with open("electrodomesticos.txt","w",encoding="UTF-8") as archivo:
-            for producto in listaRegistros:
-                linea = ";".join(producto) # Convertimos la lista en una linea de texto
-                archivo.write(linea + "\n")
+    with open("electrodomesticos.txt","w",encoding="UTF-8") as archivo:
+        for producto in listaRegistros:
+            linea = ";".join(producto) # Convertimos la lista en una linea de texto
+            archivo.write(linea + "\n")
 
     return
 
@@ -491,6 +484,8 @@ def modificarEstado(listaRegistros,codigo_del_producto,nuevo_estado):
     return
 
 
+listaRegistros=[]
+
 avanzar=True
 while avanzar:
     print("--- Menú de Opciones ---")
@@ -555,7 +550,7 @@ while avanzar:
         else:
             codigo_del_producto=str(input("Ingrese el Código del producto a modificar: ")).upper()
             nuevo_estado=str(input("Ingrese el estado que le quiere colocar al producto: ")).lower()
-            while nuevo_estado!="entregado" or nuevo_estado!="pendiente" or nuevo_estado!="cancelado":
+            while nuevo_estado not in ["entregado","pendiente","cancelado"]:
                 nuevo_estado=str(input("Ingrese nuevamente el estado que le quiere colocar al producto: ")).lower()
 
             modificarEstado(listaRegistros,codigo_del_producto,nuevo_estado)
