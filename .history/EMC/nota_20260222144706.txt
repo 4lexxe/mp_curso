@@ -1,0 +1,149 @@
+================================================================================
+CONSIGNA DEL EJERCICIO - EXAMEN PARCIAL 2026 (EMC)
+================================================================================
+
+Duración: 4 horas
+Modalidad: Individual
+Lenguaje: Python
+Se permite únicamente el uso de listas, estructuras básicas y archivos de texto.
+NO utilizar diccionarios ni librerías externas.
+
+--------------------------------------------------------------------------------
+SITUACIÓN PROBLEMA
+--------------------------------------------------------------------------------
+
+Una empresa de venta de electrodomésticos llamada "TECNOHOGAR" almacena la 
+información de sus ventas en un archivo de texto llamado:
+
+electrodomesticos.txt
+
+Cada línea del archivo tiene el siguiente formato:
+
+codigo;fecha;producto;marca;cliente;estado;precio
+
+Donde:
+• codigo: código único del electrodoméstico vendido (ej: E001)
+• fecha: fecha de venta (formato YYYY-MM-DD)
+• producto: nombre del producto (Heladera, Lavarropas, Microondas, etc.)
+• marca: marca del electrodoméstico
+• cliente: nombre del cliente
+• estado: "entregado", "pendiente" o "cancelado"
+• precio: precio del producto (valor numérico)
+
+Ejemplo de línea:
+E001;2026-03-10;Heladera;Samsung;Maria Lopez;entregado;350000
+
+--------------------------------------------------------------------------------
+NOTA IMPORTANTE
+--------------------------------------------------------------------------------
+Para aprobar el examen el alumno debe:
+✔ Resolver el punto obligatorio.
+✔ Resolver al menos 3 consignas adicionales.
+✔ Utilizar funciones correctamente modularizadas.
+✔ Trabajar con archivos.
+✔ No repetir código innecesariamente.
+
+--------------------------------------------------------------------------------
+CONSIGNAS
+--------------------------------------------------------------------------------
+
+1) Implementar la función que lea el archivo electrodomesticos.txt y devuelva 
+   una lista con todos los registros.
+
+   En caso de que el archivo no exista, debe crearlo automáticamente con al 
+   menos 5 registros de ejemplo y luego realizar la lectura.
+
+--------------------------------------------------------------------------------
+
+2) Listar todos los electrodomésticos vendidos en un año y mes ingresado por 
+   el usuario (formato YYYY y MM), excluyendo las ventas realizadas al cliente 
+   llamado "administrador".
+
+   Mostrar:
+   Producto - Cliente - Estado
+
+--------------------------------------------------------------------------------
+
+3) Solicitar una marca al usuario y mostrar cuántos productos de esa marca 
+   fueron vendidos en total.
+
+--------------------------------------------------------------------------------
+
+4) Mostrar todos los electrodomésticos que no hayan sido entregados 
+   (estado distinto a "entregado").
+
+   Mostrar:
+   Código - Producto - Cliente - Estado
+
+--------------------------------------------------------------------------------
+
+5) Listar los 3 clientes con mayor cantidad de compras realizadas.
+   Debe ordenarse de mayor a menor utilizando el método burbuja.
+
+   Mostrar:
+   Cliente - Cantidad de compras
+
+--------------------------------------------------------------------------------
+
+6) Permitir eliminar un registro según su código.
+   El usuario debe ingresar el código del electrodoméstico y el programa debe:
+
+   • Verificar si el código existe.
+   • Si existe, eliminarlo de la lista.
+   • Guardar nuevamente el archivo sin ese registro.
+   • Informar si la eliminación fue exitosa.
+   • Si no existe, mostrar mensaje correspondiente.
+
+   (Este punto es obligatorio realizarlo con recorrido manual de listas)
+
+--------------------------------------------------------------------------------
+
+7) (PUNTO OBLIGATORIO)
+
+   Generar un informe por cada marca existente en el archivo.
+   Se debe crear un archivo con nombre:
+
+   informe_[marca].txt
+
+   Cada archivo debe contener:
+
+   Marca: ________
+   Total de productos vendidos: ___
+   Total entregados: ___
+   Total pendientes: ___
+   Total cancelados: ___
+   Producto más vendido: ___
+   Recaudación total de la marca: ___
+
+   El producto más vendido debe calcularse manualmente contando repeticiones.
+
+--------------------------------------------------------------------------------
+REQUISITOS TÉCNICOS
+--------------------------------------------------------------------------------
+
+• Utilizar listas de listas.
+• Implementar funciones auxiliares para:
+  - Verificar existencia
+  - Incrementar contadores
+  - Ordenar
+  - Filtrar
+• Manejar correctamente índices.
+• Utilizar try-except para manejo de archivo.
+• No usar estructuras no vistas en clase.
+• El programa debe tener una función principal.
+
+--------------------------------------------------------------------------------
+CRITERIOS DE EVALUACIÓN
+--------------------------------------------------------------------------------
+
+✔ Correcta lectura y escritura de archivo
+✔ Uso correcto de estructuras repetitivas
+✔ Correcto uso de condicionales
+✔ Modularización adecuada
+✔ Lógica clara y ordenada
+✔ Código prolijo
+✔ Funcionalidad completa del punto obligatorio
+
+--------------------------------------------------------------------------------
+FIN DE LA CONSIGNA
+--------------------------------------------------------------------------------

@@ -1,0 +1,230 @@
+================================================================================
+CONSIGNA DEL EJERCICIO - EXAMEN PARCIAL 2026 (EMC)
+================================================================================
+
+Duración: 4 horas  
+Horario: 15:15 hs a 19:15 hs  
+Modalidad: Individual  
+Lenguaje: Python  
+
+IMPORTANTE:
+• Para rendir el examen puede hacerlo en computadora o en papel.
+• El desarrollo en papel es obligatorio.
+• Luego debe subir el código al repositorio respetando la estructura indicada.
+
+================================================================================
+SITUACIÓN PROBLEMA
+================================================================================
+
+Una empresa de venta de electrodomésticos llamada "TECNOHOGAR" almacena la 
+información de sus ventas en un archivo de texto llamado:
+
+electrodomesticos.txt
+
+Cada línea del archivo tiene el siguiente formato:
+
+codigo;fecha;producto;marca;cliente;estado;precio
+
+Donde:
+• codigo: código único del electrodoméstico vendido (ej: E001)
+• fecha: fecha de venta (formato YYYY-MM-DD)
+• producto: nombre del producto (Heladera, Lavarropas, Microondas, etc.)
+• marca: marca del electrodoméstico
+• cliente: nombre del cliente
+• estado: "entregado", "pendiente" o "cancelado"
+• precio: precio del producto (valor numérico)
+
+Ejemplo de línea:
+E001;2026-03-10;Heladera;Samsung;Maria Lopez;entregado;350000
+
+================================================================================
+CONDICIÓN SOBRE EL ARCHIVO
+================================================================================
+
+Si el archivo electrodomesticos.txt NO existe:
+
+• Se debe lanzar una excepción.
+• Capturar la excepción con try-except.
+• Crear automáticamente el archivo.
+• Cargar al menos 5 registros de ejemplo.
+• Luego realizar nuevamente la lectura del archivo.
+
+================================================================================
+NOTA IMPORTANTE
+================================================================================
+
+Para aprobar el examen el alumno debe:
+
+✔ Resolver los puntos obligatorios.
+✔ Resolver al menos 4 consignas adicionales.
+✔ Utilizar funciones correctamente modularizadas.
+✔ Trabajar con archivos.
+✔ Aplicar buenas prácticas de programación.
+
+================================================================================
+CONSIGNAS
+================================================================================
+
+1) Implementar la función que lea el archivo electrodomesticos.txt y devuelva 
+   una lista con todos los registros.
+
+--------------------------------------------------------------------------------
+
+2) Listar todos los electrodomésticos vendidos en un año y mes ingresado por 
+   el usuario (formato YYYY y MM), excluyendo las ventas realizadas al cliente 
+   llamado "administrador".
+
+   Mostrar:
+   Producto - Cliente - Estado
+
+--------------------------------------------------------------------------------
+
+3) Solicitar una marca al usuario y mostrar cuántos productos de esa marca 
+   fueron vendidos en total.
+
+--------------------------------------------------------------------------------
+
+4) Mostrar todos los electrodomésticos que no hayan sido entregados 
+   (estado distinto a "entregado").
+
+   Mostrar:
+   Código - Producto - Cliente - Estado
+
+--------------------------------------------------------------------------------
+
+5) Listar los 3 clientes con mayor cantidad de compras realizadas.
+   Debe ordenarse de mayor a menor utilizando el método burbuja.
+
+   Mostrar:
+   Cliente - Cantidad de compras
+
+--------------------------------------------------------------------------------
+
+6) Permitir eliminar un registro según su código.
+   El usuario debe ingresar el código del electrodoméstico y el programa debe:
+
+   • Verificar si el código existe.
+   • Si existe, eliminarlo de la lista.
+   • Guardar nuevamente el archivo sin ese registro.
+   • Informar si la eliminación fue exitosa.
+   • Si no existe, mostrar mensaje correspondiente.
+
+--------------------------------------------------------------------------------
+
+7) (PUNTO OBLIGATORIO)
+
+   Generar un informe por cada marca existente en el archivo.
+   Se debe crear un archivo con nombre:
+
+   informe_[marca].txt
+
+   Cada archivo debe contener:
+
+   Marca: ________
+   Total de productos vendidos: ___
+   Total entregados: ___
+   Total pendientes: ___
+   Total cancelados: ___
+   Producto más vendido: ___
+   Recaudación total de la marca: ___
+
+--------------------------------------------------------------------------------
+
+8) Calcular la recaudación total general de la empresa considerando únicamente
+   los productos con estado "entregado".
+
+   Mostrar:
+   Total general recaudado
+
+--------------------------------------------------------------------------------
+
+9) (PUNTO OBLIGATORIO)
+
+   Implementar una función que permita modificar el estado de un producto 
+   según su código.
+
+   El usuario deberá ingresar:
+   • Código del producto
+   • Nuevo estado ("entregado", "pendiente" o "cancelado")
+
+   El programa debe:
+   • Verificar que el código exista.
+   • Validar que el nuevo estado sea correcto.
+   • Actualizar el registro en la lista.
+   • Guardar nuevamente el archivo con la modificación.
+   • Informar si la operación fue exitosa o no.
+
+================================================================================
+BUENAS PRÁCTICAS Y CLEAN CODE (OBLIGATORIO)
+================================================================================
+
+El examen será evaluado también por la calidad del código.
+
+Se debe cumplir con:
+
+• No repetir código innecesariamente.
+• Evitar funciones con más de 1 o 2 responsabilidades.
+• Usar nombres claros y descriptivos en variables y funciones.
+• Escribir comentarios que expliquen bloques importantes de lógica.
+• Evitar funciones excesivamente largas.
+• Validar correctamente los datos ingresados por el usuario.
+• Utilizar correctamente métodos de listas y cadenas.
+• Mantener el código ordenado y legible.
+• Separar lógica de negocio de la interacción con el usuario cuando sea posible.
+
+El mal uso de estructuras, código repetido, funciones demasiado extensas,
+mala organización o falta de claridad puede descontar puntos.
+
+================================================================================
+ENTREGA Y REPOSITORIO
+================================================================================
+
+El examen debe subirse a un repositorio siguiendo estas condiciones:
+
+• Crear una carpeta llamada: parcial_2026
+• Dentro de ella colocar el archivo .py
+• La carpeta debe estar identificada con su nombre y apellido.
+• Subir los cambios utilizando las técnicas recomendadas en el curso sobre 
+  Git y GitHub.
+• Realizar commits correctamente descriptivos.
+• Verificar que el repositorio esté actualizado antes de finalizar.
+
+================================================================================
+CRITERIOS DE EVALUACIÓN - PARCIAL EMC 2026
+================================================================================
+
+Marcar con una X según corresponda.
+
+| N° | CRITERIO                                   | NO CUMPLE | PARCIAL | CORRECTO |
+|----|--------------------------------------------|-----------|---------|----------|
+| 1  | Lectura correcta del archivo               | [   ]     | [   ]   | [   ]    |
+| 2  | Manejo adecuado de excepciones             | [   ]     | [   ]   | [   ]    |
+| 3  | Creación automática si no existe archivo   | [   ]     | [   ]   | [   ]    |
+| 4  | Eliminación correcta por código            | [   ]     | [   ]   | [   ]    |
+| 5  | Modificación correcta de estado            | [   ]     | [   ]   | [   ]    |
+| 6  | Generación correcta de informes por marca  | [   ]     | [   ]   | [   ]    |
+| 7  | Uso de algún método de ordenamiento        | [   ]     | [   ]   | [   ]    |
+| 8  | Ordenamiento correctamente implementado    | [   ]     | [   ]   | [   ]    |
+| 9  | Cálculos correctos (conteos y totales)     | [   ]     | [   ]   | [   ]    |
+| 10 | Modularización adecuada                    | [   ]     | [   ]   | [   ]    |
+| 11 | Funciones con responsabilidad clara        | [   ]     | [   ]   | [   ]    |
+| 12 | No repetición de código innecesario        | [   ]     | [   ]   | [   ]    |
+| 13 | Nombres claros en variables y funciones    | [   ]     | [   ]   | [   ]    |
+| 14 | Validaciones correctas de datos            | [   ]     | [   ]   | [   ]    |
+| 15 | Manejo correcto de archivos                | [   ]     | [   ]   | [   ]    |
+| 16 | Uso correcto de with open() o close()      | [   ]     | [   ]   | [   ]    |
+| 17 | Código ordenado y legible                  | [   ]     | [   ]   | [   ]    |
+| 18 | Comentarios claros y útiles                | [   ]     | [   ]   | [   ]    |
+| 19 | Uso correcto de métodos de listas          | [   ]     | [   ]   | [   ]    |
+| 20 | Separación lógica / interacción            | [   ]     | [   ]   | [   ]    |
+| 21 | Subida correcta al repositorio             | [   ]     | [   ]   | [   ]    |
+
+================================================================================
+OBSERVACIONES:
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________
+________________________________________________________________________________
+
+PUNTAJE FINAL: ____________________
+================================================================================

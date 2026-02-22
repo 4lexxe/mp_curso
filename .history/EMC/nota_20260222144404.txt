@@ -1,0 +1,71 @@
+================================================================================
+CONSIGNA DEL EXAMEN PARCIAL - ELECTRODOMÉSTICOS (EMC)
+================================================================================
+
+Una tienda de electrodomésticos proporciona un archivo de texto llamado 
+ventas.txt que contiene todos los registros de ventas realizadas. Cada línea 
+del archivo sigue el siguiente formato:
+
+fecha;producto;marca;cliente;estado
+
+Donde:
+• fecha: fecha de la venta (formato YYYY-MM-DD)
+• producto: nombre del electrodoméstico (heladera, lavarropas, microondas, etc.)
+• marca: marca del electrodoméstico (Samsung, LG, Whirlpool, etc.)
+• cliente: nombre del cliente que compró
+• estado: "entregado", "pendiente" o "cancelado"
+
+NOTA: Para aprobar debe tener al menos dos consignas hechas más el punto obligatorio.
+
+DURACIÓN: 4 horas
+
+CONSIGNAS:
+
+1) Implementar la lectura del archivo ventas.txt y devolver los registros
+   en forma de lista. Si hay error debe crear el archivo con datos de ejemplo.
+
+2) Listar los productos vendidos en un determinado año y mes, excluyendo
+   las ventas del cliente "administrador".
+
+3) Determinar la cantidad de veces que un producto de una marca dada fue
+   vendido.
+
+4) Enlistar los productos que no hayan sido entregados (estado distinto a 
+   "entregado") mostrando cliente y estado.
+
+5) BORRAR un registro de venta según el código de producto ingresado por el
+   usuario. El código se forma concatenando la fecha con las primeras 3 letras
+   del producto (ejemplo: 2025-01-15HEL). Debe actualizar el archivo ventas.txt
+   eliminando ese registro.
+
+6) Listar los 3 clientes con más compras realizadas.
+
+7) (PUNTO OBLIGATORIO) Para cada marca crear un archivo con nombre
+   informe_[marca].txt con la siguiente estructura:
+   • Marca
+   • Total de productos vendidos
+   • Total de productos entregados
+   • Total de productos pendientes
+   • Total de productos cancelados
+   • Producto más vendido
+
+Ejemplo:
+Marca: Samsung
+Total de productos vendidos: 35
+Total de productos entregados: 28
+Total de productos pendientes: 5
+Total de productos cancelados: 2
+Producto más vendido: Heladera
+
+================================================================================
+OBSERVACIONES:
+================================================================================
+
+- Los datos deben manejarse con listas de Python
+- Cada función debe tener una única responsabilidad (modularización)
+- Usar funciones auxiliares para evitar repetir código
+- Validar entradas del usuario
+- Manejar excepciones en lectura/escritura de archivos
+- Los archivos deben usar codificación UTF-8
+
+================================================================================

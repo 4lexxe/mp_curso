@@ -1,0 +1,47 @@
+=============================================================================
+NOTAS PARA EL EXAMEN - SISTEMA DE GESTIÓN DE BIBLIOTECA
+=============================================================================
+
+DURACIÓN: 4 horas
+
+TEMAS A EVALUAR:
+----------------
+1. Lectura y escritura de archivos de texto
+2. Manipulación de listas y estructuras de datos
+3. Filtrado y búsqueda de información
+4. Ordenamiento de datos (algoritmo burbuja)
+5. Contadores y acumuladores
+6. Funciones modulares y reutilizables
+7. Generación de informes
+
+ESTRUCTURA DE DATOS:
+-------------------
+- Formato de archivo: fecha;titulo;autor;usuario;estado
+- Formato de fecha: YYYY-MM-DD
+- Estados posibles: devuelto, pendiente, retrasado
+
+FUNCIONES CLAVE A DOMINAR:
+--------------------------
+1. leerPrestamos() - Lectura de archivo con manejo de excepciones
+2. Filtrado por fecha (startswith)
+3. Contadores simples
+4. Búsqueda en listas (verificar existencia)
+5. Ordenamiento burbuja (mayor a menor)
+6. Generación de informes por categoría
+
+CONSEJOS:
+---------
+- Siempre manejar excepciones al abrir archivos
+- Usar encoding="UTF-8" para archivos de texto
+- Dividir problemas complejos en funciones pequeñas
+- Verificar que los índices de lista sean correctos
+- Probar cada función antes de integrar
+
+ERRORES COMUNES A EVITAR:
+-------------------------
+- Olvidar strip() al leer líneas
+- Índices incorrectos en listas
+- No cerrar archivos (usar with)
+- Retorno dentro de bucles (revisar indentación)
+- Variables mal escritas (typos)
+=============================================================================

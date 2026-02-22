@@ -1,0 +1,158 @@
+```txt id="p9m2qx"
+================================================================================
+CONSIGNA DEL EJERCICIO - EXAMEN PARCIAL 2026 (EMC)
+================================================================================
+
+Duración: 4 horas  
+Horario: 15:15 hs a 19:15 hs  
+Modalidad: Individual  
+Lenguaje: Python  
+
+IMPORTANTE:
+• Para rendir el examen debe estar escrito en hoja, con lápiz o lapicera.
+• El desarrollo en papel es obligatorio.
+• Luego debe subir el código al repositorio respetando la estructura indicada.
+
+================================================================================
+SITUACIÓN PROBLEMA
+================================================================================
+
+Una empresa de venta de electrodomésticos llamada "TECNOHOGAR" almacena la 
+información de sus ventas en un archivo de texto llamado:
+
+electrodomesticos.txt
+
+Formato del archivo:
+
+codigo;fecha;producto;marca;cliente;estado;precio
+
+================================================================================
+CONDICIÓN SOBRE EL ARCHIVO
+================================================================================
+
+Si el archivo electrodomesticos.txt NO existe:
+
+• Se debe lanzar una excepción.
+• Capturarla correctamente.
+• Crear automáticamente el archivo.
+• Cargar al menos 5 registros de ejemplo.
+• Volver a realizar la lectura.
+
+Se evaluará el manejo correcto de archivos.
+
+================================================================================
+BUENAS PRÁCTICAS Y CLEAN CODE (OBLIGATORIO)
+================================================================================
+
+El examen será evaluado también por la calidad del código.
+
+Se debe cumplir con:
+
+• No repetir código innecesariamente.
+• Evitar funciones con más de 1 o 2 responsabilidades.
+• Usar nombres claros y descriptivos en variables y funciones.
+• Escribir comentarios que expliquen bloques importantes de lógica.
+• Evitar funciones excesivamente largas.
+• Validar correctamente los datos ingresados por el usuario.
+• Utilizar correctamente métodos de listas y cadenas.
+• Mantener el código ordenado y legible.
+• Separar lógica de negocio de la interacción con el usuario cuando sea posible.
+• Evitar variables globales innecesarias.
+• No mezclar lectura de archivo con lógica de cálculo en la misma función.
+• Evitar prints dentro de funciones que solo deben calcular.
+• Centralizar la escritura en archivo en funciones específicas.
+• Controlar errores de conversión de tipos (por ejemplo precio).
+• Manejar correctamente índices de listas.
+• No hacer múltiples recorridos innecesarios si puede resolverse en uno solo.
+
+--------------------------------------------------------------------------------
+MANEJO DE ARCHIVOS (SE EVALÚA NIVEL)
+--------------------------------------------------------------------------------
+
+Se evaluará:
+
+• Uso correcto de with open() (cierre automático).
+• Uso manual correcto de open() y close() si se utiliza.
+• Apertura en modo correcto: "r", "w", "a".
+• Escritura limpia sin sobrescribir datos innecesariamente.
+• Reescritura completa del archivo cuando se elimina o modifica un registro.
+• Manejo adecuado de excepciones.
+• Separación entre función de lectura y función de escritura.
+• No dejar archivos abiertos.
+• No duplicar registros por errores de escritura.
+
+================================================================================
+CONSIGNAS
+================================================================================
+
+1) Leer el archivo y devolver lista de registros.
+
+2) Listar ventas por año y mes excluyendo cliente "administrador".
+
+3) Contar productos por marca.
+
+4) Mostrar productos no entregados.
+
+5) Top 3 clientes (ordenamiento burbuja).
+
+6) Eliminar registro por código.
+
+7) (PUNTO OBLIGATORIO)
+   Generar informe por marca en archivo informe_[marca].txt.
+
+8) Calcular recaudación total general (solo entregados).
+
+9) (PUNTO OBLIGATORIO)
+   Modificar estado por código y guardar cambios.
+
+================================================================================
+ENTREGA Y REPOSITORIO
+================================================================================
+
+• Crear carpeta: parcial_2026
+• Dentro colocar archivo .py
+• Carpeta identificada con nombre y apellido.
+• Subir utilizando buenas prácticas vistas en clase sobre Git y GitHub.
+• Commits descriptivos.
+• Repositorio actualizado antes de las 19:15 hs.
+
+================================================================================
+CRITERIOS DE EVALUACIÓN
+================================================================================
+
+La evaluación se realizará según la siguiente tabla:
+
+| CRITERIO                               | NO CUMPLE | PARCIALMENTE CORRECTO | CORRECTO |
+|----------------------------------------|-----------|-----------------------|----------|
+| Lectura correcta del archivo          |           |                       |          |
+| Manejo de excepciones                 |           |                       |          |
+| Creación automática si no existe      |           |                       |          |
+| Eliminación por código                |           |                       |          |
+| Modificación de estado                |           |                       |          |
+| Generación de informes                |           |                       |          |
+| Ordenamiento burbuja                  |           |                       |          |
+| Cálculos correctos                    |           |                       |          |
+| Modularización adecuada               |           |                       |          |
+| Responsabilidad única por función     |           |                       |          |
+| No repetición de código               |           |                       |          |
+| Nombres claros y descriptivos         |           |                       |          |
+| Validaciones correctas                |           |                       |          |
+| Manejo correcto de archivos           |           |                       |          |
+| Uso adecuado de with open()           |           |                       |          |
+| Código ordenado y legible             |           |                       |          |
+| Comentarios claros y útiles           |           |                       |          |
+| Uso correcto de métodos de listas     |           |                       |          |
+| Separación lógica / interacción       |           |                       |          |
+| Subida correcta al repositorio        |           |                       |          |
+
+--------------------------------------------------------------------------------
+ACLARACIÓN FINAL
+--------------------------------------------------------------------------------
+
+Código desorganizado, repetitivo, excesivamente largo, sin modularización
+o sin buenas prácticas puede descontar puntos incluso si funciona.
+
+================================================================================
+FIN DE LA CONSIGNA
+================================================================================
+```
