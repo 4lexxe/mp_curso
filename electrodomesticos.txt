@@ -1,0 +1,5 @@
+E001;2026-03-10;Heladera;Samsung;Maria Lopez;entregado;350000
+E002;2026-03-11;Lavarropas;LG;Carlos Perez;pendiente;420000
+E003;2026-03-12;Microondas;BGH;Ana Gomez;entregado;150000
+E004;2026-03-13;Televisor;Sony;Juan Diaz;cancelado;600000
+E005;2026-03-14;Aspiradora;Philips;administrador;entregado;120000

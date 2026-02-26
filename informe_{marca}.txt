@@ -1,0 +1,5 @@
+E001,2026-03-10,Heladera,Samsung,Maria Lopez,entregado
+E002,2026-03-11,Lavarropas,LG,Carlos Perez,pendiente
+E003,2026-03-12,Microondas,BGH,Ana Gomez,entregado
+E004,2026-03-13,Televisor,Sony,Juan Diaz,cancelado
+E005,2026-03-14,Aspiradora,Philips,administrador,entregado
