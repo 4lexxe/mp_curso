@@ -1,0 +1,7 @@
+Categoria: hardware
+Total de productos registrados: 2
+Productos con stock: 2
+Productos sin stock: 0
+Stock total: 15
+Producto con menor precio: Memoria RAM 16GB
+Producto con mayor precio:SSD Kingston

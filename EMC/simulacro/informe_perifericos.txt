@@ -1,0 +1,7 @@
+Categoria: perifericos
+Total de productos registrados: 2
+Productos con stock: 2
+Productos sin stock: 0
+Stock total: 20
+Producto con menor precio: Mouse Logitech
+Producto con mayor precio:Teclado Redragon

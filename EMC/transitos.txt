@@ -1,0 +1,6 @@
+2026-11-05 08:30;AB123CD;auto;Peaje_Norte;si
+2026-11-05 08:45;OFICIAL_01;auto;Peaje_Norte;si
+2026-11-05 09:12;XY987ZT;camion;Peaje_Norte;no
+2026-11-05 09:30;JK456LM;moto;Peaje_Sur;si
+2026-11-05 10:00;AA111BB;camion;Peaje_Norte;si
+2026-11-05 10:00;AA111BB;camion;Peaje_Norte;si

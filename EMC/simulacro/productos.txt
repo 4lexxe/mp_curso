@@ -1,0 +1,5 @@
+P001;Mouse Logitech;perifericos;18000;12
+P002;Teclado Redragon;perifericos;32000;8
+P003;SSD Kingston;hardware;45000;5
+P004;Memoria RAM 16GB;hardware;38000;10
+P005;Pendrive 64GB;almacenamiento;12000;15

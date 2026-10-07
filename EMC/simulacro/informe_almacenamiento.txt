@@ -1,0 +1,7 @@
+Categoria: almacenamiento
+Total de productos registrados: 1
+Productos con stock: 1
+Productos sin stock: 0
+Stock total: 15
+Producto con menor precio: Pendrive 64GB
+Producto con mayor precio:Pendrive 64GB
