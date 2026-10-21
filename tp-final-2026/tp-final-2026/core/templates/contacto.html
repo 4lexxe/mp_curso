@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto e Institucional{% endblock title %}
+
+{% block contenido %}
+
+<!-- Encabezado de sección -->
+<section class="bg-white py-4 shadow-sm">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 small">
+                <li class="breadcrumb-item"><a href="{% url 'core:inicio' %}" class="text-decoration-none">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contacto</li>
+            </ol>
+        </nav>
+        <h1 class="h3 fw-bold text-primary mb-1">
+            <i class="bi bi-envelope-paper-fill me-2"></i>Contacto e Institucional
+        </h1>
+        <p class="text-muted mb-0">
+            Escribinos para consultas generales, trámites administrativos o sugerencias.
+            Para turnos, usá el <a href="{% url 'core:reservar' %}" class="text-decoration-none">formulario de reservas</a>.
+        </p>
+    </div>
+</section>
+
+<section class="container py-5">
+    <div class="row g-4">
+
+        <!-- ============ FORMULARIO DE CONSULTAS ============ -->
+        <div class="col-lg-7">
+            <div class="card sp-form-card">
+                <div class="card-header bg-primary text-white py-3">
+                    <h2 class="h5 mb-0">
+                        <i class="bi bi-chat-dots-fill me-2"></i>Formulario de consultas e inquietudes
+                    </h2>
+                </div>
+                <div class="card-body p-4">
+                    <form action="#" method="post" novalidate>
+                        {% csrf_token %}
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="nombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej.: Juan" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Ej.: juan@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="asunto" class="form-label">Asunto <span class="text-danger">*</span></label>
+                            <select class="form-select" id="asunto" name="asunto" required>
+                                <option value="" selected disabled>Seleccioná un asunto...</option>
+                                <option value="turnos">Consultas sobre turnos</option>
+                                <option value="obra-social">Obra social / Precios</option>
+                                <option value="estudios">Resultados de estudios</option>
+                                <option value="facturacion">Facturación y recibos</option>
+                                <option value="sugerencia">Sugerencias y reclamos</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="mensaje" class="form-label">Mensaje <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="6" placeholder="Contanos en qué podemos ayudarte..." required></textarea>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-sp-cta px-4 fw-semibold">
+                                <i class="bi bi-send-fill me-1"></i>Enviar consulta
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary px-4">
+                                <i class="bi bi-eraser me-1"></i>Limpiar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ PANEL LATERAL INFORMATIVO ============ -->
+        <div class="col-lg-5">
+            <div class="sp-info-panel p-4 mb-4">
+                <h2 class="h6 text-uppercase mb-3" style="color: #7fd6df;">
+                    <i class="bi bi-building me-1"></i>Datos del establecimiento
+                </h2>
+
+                <div class="sp-info-item d-flex align-items-start">
+                    <i class="bi bi-geo-alt-fill fs-5 me-3 mt-1 text-warning"></i>
+                    <div>
+                        <strong class="d-block">Dirección física</strong>
+                        <small class="opacity-75">{{ clinica.direccion }}<br>
+                            Sede central · CABA, Argentina</small>
+                    </div>
+                </div>
+
+                <div class="sp-info-item d-flex align-items-start">
+                    <i class="bi bi-telephone-fill fs-5 me-3 mt-1"></i>
+                    <div>
+                        <strong class="d-block">Líneas telefónicas</strong>
+                        <small class="opacity-75">
+                            Central: {{ clinica.telefono_central }}<br>
+                            WhatsApp: +54 9 11 5555-0199<br>
+                            Email: {{ clinica.email }}
+                        </small>
+                    </div>
+                </div>
+
+                <div class="sp-info-item d-flex align-items-start">
+                    <i class="bi bi-ambulance fs-5 me-3 mt-1 text-danger"></i>
+                    <div>
+                        <strong class="d-block text-danger">Líneas telefónicas urgentes</strong>
+                        <small class="opacity-75">
+                            Urgencias: {{ clinica.telefono_urgencias }}<br>
+                            Emergencias: 107 (SAME)<br>
+                            {{ clinica.horarios.guardia }}
+                        </small>
+                    </div>
+                </div>
+
+                <div class="sp-info-item d-flex align-items-start">
+                    <i class="bi bi-clock-fill fs-5 me-3 mt-1"></i>
+                    <div>
+                        <strong class="d-block">Horarios de atención general</strong>
+                        <small class="opacity-75">
+                            {{ clinica.horarios.consultorios }}<br>
+                            {{ clinica.horarios.sabados }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor para mapa interactivo/embebido -->
+            <div class="card sp-card overflow-hidden">
+                <div class="card-body pb-2">
+                    <h2 class="h6 fw-bold text-primary mb-1">
+                        <i class="bi bi-map me-1"></i>Cómo llegar
+                    </h2>
+                    <p class="small text-muted mb-2">Sede central de la Clínica SaludPlus</p>
+                </div>
+                <div class="sp-map-container">
+                    <!-- Mapa embebido (Google Maps / OpenStreetMap) -->
+                    <iframe
+                        title="Mapa de la sede central de Clínica SaludPlus"
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=-58.398%2C-34.608%2C-58.378%2C-34.596&amp;layer=mapnik&amp;marker=-34.602%2C-58.388"
+                        width="100%"
+                        height="240"
+                        style="border: 0;"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock contenido %}

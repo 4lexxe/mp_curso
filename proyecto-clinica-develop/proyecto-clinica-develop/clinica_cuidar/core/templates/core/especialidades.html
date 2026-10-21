@@ -1,0 +1,170 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Especialidades Médicas y Servicios | Blood Center{% endblock %}
+
+{% block contenido %}
+
+<!-- Page Banner -->
+<section class="page-header-banner">
+  <div class="container">
+    <span class="hero-tagline">SERVICIOS INTEGRALES DE SALUD</span>
+    <h1>Especialidades Médicas</h1>
+    <p>Atención especializada, tecnología de diagnóstico de avanzada y calidez humana.</p>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="py-5 bg-white">
+  <div class="container">
+    
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-8">
+        <span class="section-eyebrow">ÁREAS DE ATENCIÓN</span>
+        <h2 class="section-heading">Nuestras Especialidades</h2>
+        <div class="red-accent-line"></div>
+        <p class="text-secondary">
+          Contamos con profesionales de destacada trayectoria en cada una de las disciplinas médicas para garantizar el cuidado integral de nuestros pacientes y donantes.
+        </p>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a href="{% url 'reservar' %}" class="btn-donate-now">
+          Solicitar Consulta
+        </a>
+      </div>
+    </div>
+
+    <!-- Specialty Cards Grid -->
+    <div class="row g-4">
+
+      <!-- 1. Hematología & Hemoterapia -->
+      <div class="col-lg-4 col-md-6">
+        <div class="invaluable-card">
+          <div class="p-3">
+            <div class="blood-type-badge mb-3">
+              <i class="bi bi-droplet-half" style="font-size:24px;"></i>
+            </div>
+            <h3 class="card-item-title">Hematología y Hemoterapia</h3>
+            <p class="card-item-desc">
+              Diagnóstico y tratamiento de patologías sanguíneas, anemias, coagulopatías y supervisión del banco de sangre y donaciones seguras.
+            </p>
+            <div class="border-top pt-3 d-flex justify-content-between align-items-center">
+              <span class="badge bg-light text-primary border">Guardia permanente</span>
+              <a href="{% url 'reservar' %}" class="card-action-link">Turno <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Cardiología -->
+      <div class="col-lg-4 col-md-6">
+        <div class="invaluable-card">
+          <div class="p-3">
+            <div class="blood-type-badge mb-3">
+              <i class="bi bi-heart-pulse-fill" style="font-size:24px;"></i>
+            </div>
+            <h3 class="card-item-title">Cardiología Clínica</h3>
+            <p class="card-item-desc">
+              Evaluación cardiovascular integral, electrocardiogramas, ergometrías, ecocardiogramas Doppler y chequeos preventivos.
+            </p>
+            <div class="border-top pt-3 d-flex justify-content-between align-items-center">
+              <span class="badge bg-light text-primary border">Estudios en el día</span>
+              <a href="{% url 'reservar' %}" class="card-action-link">Turno <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Pediatría -->
+      <div class="col-lg-4 col-md-6">
+        <div class="invaluable-card">
+          <div class="p-3">
+            <div class="blood-type-badge mb-3">
+              <i class="bi bi-emoji-smile-fill" style="font-size:24px;"></i>
+            </div>
+            <h3 class="card-item-title">Pediatría Integral</h3>
+            <p class="card-item-desc">
+              Acompañamiento en el crecimiento y desarrollo infantil, vacunación, controles de rutina y atención médica oportuna para recién nacidos y niños.
+            </p>
+            <div class="border-top pt-3 d-flex justify-content-between align-items-center">
+              <span class="badge bg-light text-primary border">Atención cálida</span>
+              <a href="{% url 'reservar' %}" class="card-action-link">Turno <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Análisis Clínicos & Laboratorio -->
+      <div class="col-lg-4 col-md-6">
+        <div class="invaluable-card">
+          <div class="p-3">
+            <div class="blood-type-badge mb-3">
+              <i class="bi bi-clipboard2-pulse-fill" style="font-size:24px;"></i>
+            </div>
+            <h3 class="card-item-title">Laboratorio de Análisis Clínicos</h3>
+            <p class="card-item-desc">
+              Extracción de muestras con resultados digitales rápidos. Serología de donantes, perfiles bioquímicos completos y citología.
+            </p>
+            <div class="border-top pt-3 d-flex justify-content-between align-items-center">
+              <span class="badge bg-light text-primary border">Resultados online</span>
+              <a href="{% url 'reservar' %}" class="card-action-link">Turno <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Traumatología -->
+      <div class="col-lg-4 col-md-6">
+        <div class="invaluable-card">
+          <div class="p-3">
+            <div class="blood-type-badge mb-3">
+              <i class="bi bi-activity" style="font-size:24px;"></i>
+            </div>
+            <h3 class="card-item-title">Traumatología y Ortopedia</h3>
+            <p class="card-item-desc">
+              Tratamiento de lesiones osteoarticulares, musculares, fracturas y rehabilitación postural con equipo de kinesiólogos.
+            </p>
+            <div class="border-top pt-3 d-flex justify-content-between align-items-center">
+              <span class="badge bg-light text-primary border">Rehabilitación</span>
+              <a href="{% url 'reservar' %}" class="card-action-link">Turno <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Oftalmología -->
+      <div class="col-lg-4 col-md-6">
+        <div class="invaluable-card">
+          <div class="p-3">
+            <div class="blood-type-badge mb-3">
+              <i class="bi bi-eye-fill" style="font-size:24px;"></i>
+            </div>
+            <h3 class="card-item-title">Oftalmología General</h3>
+            <p class="card-item-desc">
+              Control de agudeza visual, fondo de ojo, tonometría y prevención de patologías de la visión para pacientes de todas las edades.
+            </p>
+            <div class="border-top pt-3 d-flex justify-content-between align-items-center">
+              <span class="badge bg-light text-primary border">Diagnóstico rápido</span>
+              <a href="{% url 'reservar' %}" class="card-action-link">Turno <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Call to action -->
+<section class="section-cta-banner">
+  <div class="container">
+    <h2>¿Necesitás asesoramiento sobre alguna especialidad?</h2>
+    <p>Contactate con nuestro equipo médico de orientación para agendar tu consulta en la sede más conveniente.</p>
+    <a href="{% url 'reservar' %}" class="btn-hero-primary" style="background-color: var(--primary-red); border-color: var(--primary-red);">
+      Agendar Cita Médica
+    </a>
+  </div>
+</section>
+
+{% endblock contenido %}

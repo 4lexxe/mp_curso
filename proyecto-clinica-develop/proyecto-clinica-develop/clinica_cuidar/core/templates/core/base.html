@@ -4,130 +4,262 @@
 
 <head>
   <meta charset="UTF-8">
-
-  <!-- Permite que la página se adapte a celulares. -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Blood Center | Clínica de Donación y Salud Integral{% endblock %}</title>
 
-  <!-- Cada página podrá cambiar su título. -->
-  <title>
-    {% block title %}Clínica Horizonte{% endblock %}
-  </title>
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap 5: grillas, formularios y componentes. -->
+  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Íconos de Bootstrap. -->
+  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-  <!-- CSS propio de nuestra aplicación. -->
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 </head>
 
 <body>
 
-  <!-- HEADER: se comparte entre todas las páginas. -->
+  <!-- ==========================================================================
+       TOP UTILITY BAR (Info & Schedule)
+       ========================================================================== -->
+  <div class="top-utility-bar">
+    <div class="container">
+      <div class="row align-items-center gy-2">
+        
+        <!-- Logo -->
+        <div class="col-lg-4 col-md-5">
+          <a class="brand-logo-container" href="{% url 'home' %}">
+            <span class="brand-logo-mark">
+              <i class="bi bi-droplet-half"></i>
+            </span>
+            <span class="brand-logo-text">Blood Center</span>
+          </a>
+        </div>
+
+        <!-- Info items on right -->
+        <div class="col-lg-8 col-md-7">
+          <div class="top-info-items">
+            
+            <!-- Item 1: Call to Action / Locations -->
+            <div class="top-info-item">
+              <span class="info-primary">Take action — save a life today!</span>
+              <a href="{% url 'contacto' %}" class="info-secondary">donation locations</a>
+            </div>
+
+            <!-- Item 2: Phone & Email -->
+            <div class="top-info-item d-none d-sm-flex">
+              <a href="tel:+12345678900" class="info-primary phone">+1 (234) 567 89 00</a>
+              <span class="info-secondary">blood.center@email.com</span>
+            </div>
+
+            <!-- Item 3: Working Hours -->
+            <div class="top-info-item d-none d-md-flex">
+              <span class="info-primary">9:00 - 18:00</span>
+              <span class="info-secondary">Monday - Friday</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MAIN NAVIGATION BAR
+       ========================================================================== -->
   <header>
     {% block barra_navegacion %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <nav class="navbar navbar-expand-lg main-nav-bar">
       <div class="container">
 
-        <!-- Marca institucional. -->
-        <a class="navbar-brand fw-bold" href="{% url 'home' %}">
-          <i class="bi bi-heart-pulse text-primary"></i>
-          Clínica Horizonte
-        </a>
+        <!-- Mobile Brand (shown when toggled) -->
+        <span class="navbar-text d-lg-none fw-bold text-dark">
+          Menú de navegación
+        </span>
 
-        <!-- Botón que despliega el menú en celulares. -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+        <!-- Mobile Toggler Button -->
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
           aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir navegación">
           <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Navbar Links & Actions -->
         <div class="collapse navbar-collapse" id="menuPrincipal">
-
-          <ul class="navbar-nav ms-auto gap-lg-2">
-
+          
+          <!-- Navigation Links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-1">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'home' %}">
-                Inicio
+              <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">
+                ABOUT US
               </a>
             </li>
-
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'especialidades' %}">
-                Especialidades
+              <a class="nav-link {% if request.resolver_match.url_name == 'especialidades' %}active{% endif %}" href="{% url 'especialidades' %}">
+                DONATE BLOOD
               </a>
             </li>
-
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'profesionales' %}">
-                Profesionales
+              <a class="nav-link {% if request.resolver_match.url_name == 'profesionales' %}active{% endif %}" href="{% url 'profesionales' %}">
+                GET INVOLVED
               </a>
             </li>
-
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'contacto' %}">
-                Contacto
+              <a class="nav-link" href="{% url 'home' %}#quienes-somos">
+                OUR MISSION
               </a>
             </li>
-
             <li class="nav-item">
-              <a class="btn btn-primary" href="{% url 'reservar' %}">
-                Solicitar turno
+              <a class="nav-link" href="{% url 'home' %}#invaluable">
+                HOW TO HELP
               </a>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link {% if request.resolver_match.url_name == 'contacto' %}active{% endif %}" href="{% url 'contacto' %}">
+                CONTACTS
+              </a>
+            </li>
           </ul>
+
+          <!-- Right Action: Red Button + Social Icons -->
+          <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+            <a class="btn-donate-now" href="{% url 'reservar' %}">
+              DONATE NOW
+            </a>
+
+            <!-- Social Media Squares -->
+            <div class="d-flex align-items-center gap-2">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-box" title="Facebook" aria-label="Facebook">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-box" title="Instagram" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-box" title="YouTube" aria-label="YouTube">
+                <i class="bi bi-youtube"></i>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </nav>
     {% endblock barra_navegacion %}
   </header>
 
-  <!-- El HTML de cada página se inserta acá. -->
+  <!-- ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== -->
   <main>
     {% block contenido %}
     {% endblock contenido %}
   </main>
 
-  <!-- FOOTER institucional. -->
-  <footer class="pie-pagina py-4 mt-auto">
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="main-footer">
     <div class="container">
-      <div class="row g-3">
+      <div class="row g-4 justify-content-between">
 
-        <div class="col-md-5">
-          <h5>Clínica Horizonte</h5>
-          <p>Atención médica cercana y profesional.</p>
+        <!-- Column 1: Brand Info -->
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span class="brand-logo-mark" style="width:34px; height:34px; border-color:#ef4444;">
+              <i class="bi bi-droplet-half" style="font-size:18px;"></i>
+            </span>
+            <span class="brand-logo-text text-white" style="font-size:22px;">Blood Center</span>
+          </div>
+          <p class="text-secondary mb-4" style="line-height:1.7;">
+            Centro de salud y donación de sangre de excelencia. Comprometidos con salvar vidas, fortalecer comunidades y brindar atención médica de calidad humana superior.
+          </p>
+          <div class="d-flex align-items-center gap-2">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-box" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-box" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-box" aria-label="YouTube">
+              <i class="bi bi-youtube"></i>
+            </a>
+          </div>
         </div>
 
-        <div class="col-md-4">
-          <h6>Información institucional</h6>
-          <p class="mb-1">Dirección: a definir</p>
-          <p class="mb-1">Teléfono: a definir</p>
-          <p>Horarios: a confirmar</p>
+        <!-- Column 2: Quick Links -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h6 class="footer-heading">Navegación</h6>
+          <ul class="footer-links">
+            <li><a href="{% url 'home' %}">Inicio / About Us</a></li>
+            <li><a href="{% url 'especialidades' %}">Donar Sangre</a></li>
+            <li><a href="{% url 'profesionales' %}">Profesionales</a></li>
+            <li><a href="{% url 'reservar' %}">Solicitar Turno</a></li>
+            <li><a href="{% url 'contacto' %}">Sedes y Contacto</a></li>
+          </ul>
         </div>
 
-        <div class="col-md-3">
-          <h6>Redes sociales</h6>
-          <i class="bi bi-instagram me-3"></i>
-          <i class="bi bi-facebook"></i>
-          <p class="small mt-2">Perfiles a definir</p>
+        <!-- Column 3: Medical Services -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h6 class="footer-heading">Servicios</h6>
+          <ul class="footer-links">
+            <li><a href="{% url 'especialidades' %}">Banco de Sangre</a></li>
+            <li><a href="{% url 'especialidades' %}">Hematología</a></li>
+            <li><a href="{% url 'especialidades' %}">Pediatría Integral</a></li>
+            <li><a href="{% url 'especialidades' %}">Análisis Clínicos</a></li>
+            <li><a href="{% url 'reservar' %}">Atención Rápida</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact & Hours -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Atención y Sedes</h6>
+          
+          <div class="footer-info-row">
+            <i class="bi bi-geo-alt-fill"></i>
+            <span>Av. Principal de la Salud 1240, CABA</span>
+          </div>
+
+          <div class="footer-info-row">
+            <i class="bi bi-telephone-fill"></i>
+            <span>+1 (234) 567 89 00 / Guardias 24hs</span>
+          </div>
+
+          <div class="footer-info-row">
+            <i class="bi bi-envelope-fill"></i>
+            <span>blood.center@email.com</span>
+          </div>
+
+          <div class="footer-info-row">
+            <i class="bi bi-clock-fill"></i>
+            <span>Lunes a Viernes: 9:00 - 18:00 hs</span>
+          </div>
         </div>
 
       </div>
-      <hr>
-      <small>
-        © 2026 Clínica Horizonte — Proyecto académico
-      </small>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <div>
+          © 2026 Blood Center & Clínica Horizonte — Todos los derechos reservados.
+        </div>
+        <div class="text-secondary small">
+          Salvar vidas está en tu sangre. Doná con confianza.
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- JavaScript de Bootstrap para el menú responsive. -->
+  <!-- Bootstrap 5 Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Funciones de demostración para los formularios. -->
+  <!-- Demo Javascript -->
   <script src="{% static 'js/demo.js' %}"></script>
-
 </body>
 
 </html>

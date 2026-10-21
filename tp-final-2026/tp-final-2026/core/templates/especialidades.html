@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Especialidades Médicas{% endblock title %}
+
+{% block contenido %}
+
+<!-- Encabezado de sección -->
+<section class="bg-white py-4 shadow-sm">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 small">
+                <li class="breadcrumb-item"><a href="{% url 'core:inicio' %}" class="text-decoration-none">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Especialidades</li>
+            </ol>
+        </nav>
+        <h1 class="h3 fw-bold text-primary mb-1">
+            <i class="bi bi-grid-3x3-gap-fill me-2"></i>Especialidades Médicas
+        </h1>
+        <p class="text-muted mb-0">
+            Catálogo completo de áreas de atención de la Clínica SaludPlus. Seleccioná
+            una especialidad para conocer su equipo y reservar turno.
+        </p>
+    </div>
+</section>
+
+<!-- Grilla de tarjetas de especialidades -->
+<section class="container py-5">
+    <div class="row g-4">
+        {% for esp in especialidades %}
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card sp-card sp-card-especialidad">
+                <div class="card-body">
+                    <div class="d-flex align-items-start justify-content-between mb-3">
+                        <span class="sp-card-icon"><i class="bi {{ esp.icono }}"></i></span>
+                        <span class="badge bg-primary rounded-pill">
+                            <i class="bi bi-check2-circle me-1"></i>Disponible
+                        </span>
+                    </div>
+                    <h5 class="card-title fw-bold">{{ esp.nombre }}</h5>
+                    <p class="card-text text-muted small">{{ esp.resumen }}</p>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        {% for badge in esp.badges %}
+                        <span class="badge text-bg-light border fw-normal">{{ badge }}</span>
+                        {% endfor %}
+                    </div>
+                    <a href="{% url 'core:reservar' %}" class="btn btn-outline-primary btn-sm w-100">
+                        <i class="bi bi-calendar2-check me-1"></i>Reservar en {{ esp.nombre }}
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center mt-5">
+        <p class="text-muted mb-2">¿No encontrás tu especialidad?</p>
+        <a href="{% url 'core:contacto' %}" class="btn btn-sp-cta px-4">
+            <i class="bi bi-chat-dots me-1"></i>Consultar disponibilidad
+        </a>
+    </div>
+</section>
+
+{% endblock contenido %}

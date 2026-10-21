@@ -1,0 +1,116 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Cuerpo Médico y Profesionales | Blood Center{% endblock %}
+
+{% block contenido %}
+
+<!-- Page Banner -->
+<section class="page-header-banner">
+  <div class="container">
+    <span class="hero-tagline">EQUIPO DE SALUD DE EXCELENCIA</span>
+    <h1>Profesionales Médicos</h1>
+    <p>Conocé a los especialistas dedicados a tu cuidado y al bienestar de nuestra comunidad.</p>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="py-5 bg-white">
+  <div class="container">
+    
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-8">
+        <span class="section-eyebrow">NUESTROS MÉDICOS</span>
+        <h2 class="section-heading">Especialistas a tu Disposición</h2>
+        <div class="red-accent-line"></div>
+        <p class="text-secondary">
+          Médicos con sólida formación académica, continua actualización y un compromiso inquebrantable con la atención humana y cercana.
+        </p>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a href="{% url 'reservar' %}" class="btn-donate-now">
+          Pedir Turno con Especialista
+        </a>
+      </div>
+    </div>
+
+    <!-- Professionals Grid -->
+    <div class="row g-4">
+
+      <!-- Dr 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="invaluable-card text-center p-4">
+          <div class="mx-auto mb-3" style="width: 100px; height: 100px; border-radius: 50%; background: #e0f2fe; display: flex; align-items: center; justify-content: center; border: 3px solid #bae6fd;">
+            <i class="bi bi-person-fill text-primary" style="font-size: 50px;"></i>
+          </div>
+          <span class="card-category-badge">HEMATOLOGÍA & HEMOTERAPIA</span>
+          <h3 class="card-item-title mb-1">Dra. Mariana Gómez</h3>
+          <p class="small text-muted mb-3">M.N. 124.592 — Jefa de Servicio</p>
+          <p class="card-item-desc">
+            Especialista en hemoterapia y banco de sangre con más de 15 años liderando protocolos de donación segura y aféresis.
+          </p>
+          <div class="border-top pt-3">
+            <a href="{% url 'reservar' %}" class="btn btn-outline-secondary w-100">
+              Solicitar Turno
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dr 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="invaluable-card text-center p-4">
+          <div class="mx-auto mb-3" style="width: 100px; height: 100px; border-radius: 50%; background: #fee2e2; display: flex; align-items: center; justify-content: center; border: 3px solid #fecaca;">
+            <i class="bi bi-person-fill text-danger" style="font-size: 50px;"></i>
+          </div>
+          <span class="card-category-badge">CARDIOLOGÍA</span>
+          <h3 class="card-item-title mb-1">Dr. Nicolás Rossi</h3>
+          <p class="small text-muted mb-3">M.N. 118.430 — Cardiólogo Clínico</p>
+          <p class="card-item-desc">
+            Experto en evaluación prequirúrgica, prevención coronaria y diagnóstico por imágenes de patologías vasculares complejas.
+          </p>
+          <div class="border-top pt-3">
+            <a href="{% url 'reservar' %}" class="btn btn-outline-secondary w-100">
+              Solicitar Turno
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dr 3 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="invaluable-card text-center p-4">
+          <div class="mx-auto mb-3" style="width: 100px; height: 100px; border-radius: 50%; background: #dcfce7; display: flex; align-items: center; justify-content: center; border: 3px solid #bbf7d0;">
+            <i class="bi bi-person-fill text-success" style="font-size: 50px;"></i>
+          </div>
+          <span class="card-category-badge">PEDIATRÍA</span>
+          <h3 class="card-item-title mb-1">Dra. Lucía Fernández</h3>
+          <p class="small text-muted mb-3">M.N. 132.880 — Pediatra Neonatal</p>
+          <p class="card-item-desc">
+            Dedicada al seguimiento del desarrollo infantil, nutrición temprana y acompañamiento familiar en cada etapa del crecimiento.
+          </p>
+          <div class="border-top pt-3">
+            <a href="{% url 'reservar' %}" class="btn btn-outline-secondary w-100">
+              Solicitar Turno
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Call to action -->
+<section class="section-cta-banner">
+  <div class="container">
+    <h2>¿Buscás atención personalizada?</h2>
+    <p>Agendá tu turno online seleccionando el médico de tu preferencia en sencillos pasos.</p>
+    <a href="{% url 'reservar' %}" class="btn-hero-primary" style="background-color: var(--primary-red); border-color: var(--primary-red);">
+      Ir a Gestión de Turnos
+    </a>
+  </div>
+</section>
+
+{% endblock contenido %}

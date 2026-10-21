@@ -1,12 +1,144 @@
-{%extends 'core/base.html'%}
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Contacto y Sedes | Blood Center{% endblock %}
 
 {% block contenido %}
-<h2>Formulario de contacto</h2>
 
-<p>Complete el formulario para enviar su consulta</p>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Enviar</button>
-</form>
+<!-- Page Banner -->
+<section class="page-header-banner">
+  <div class="container">
+    <span class="hero-tagline">ESTAMOS PARA AYUDARTE</span>
+    <h1>Contacto y Sedes</h1>
+    <p>Comunicate con nosotros o visitá cualquiera de nuestros centros de atención y donación.</p>
+  </div>
+</section>
+
+<div class="container py-5">
+  <div class="row g-5">
+    
+    <!-- Left Column: Form -->
+    <div class="col-lg-7">
+      <div class="card formulario-card p-4 p-md-5">
+        <span class="section-eyebrow">ENVIANOS UN MENSAJE</span>
+        <h2 class="h3 fw-bold mb-3">Formulario de Contacto</h2>
+        <div class="red-accent-line"></div>
+        <p class="text-secondary mb-4">
+          Completá el siguiente formulario y un asesor médico o de atención al paciente se comunicará a la brevedad.
+        </p>
+
+        <form method="post">
+          {% csrf_token %}
+
+          {% if form %}
+            {{ form.as_p }}
+          {% else %}
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre" required>
+              </div>
+
+              <div class="col-md-6">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@email.com" required>
+              </div>
+
+              <div class="col-md-6">
+                <label for="telefono" class="form-label">Teléfono / WhatsApp</label>
+                <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+54 11 1234-5678">
+              </div>
+
+              <div class="col-md-6">
+                <label for="asunto" class="form-label">Motivo de contacto</label>
+                <select class="form-select" id="asunto" name="asunto">
+                  <option value="donacion">Quiero donar sangre</option>
+                  <option value="voluntariado">Sumarme como voluntario</option>
+                  <option value="turnos">Consulta sobre turnos médicos</option>
+                  <option value="otro">Otras consultas</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label for="mensaje" class="form-label">Mensaje o consulta</label>
+                <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Escribí tu mensaje aquí..." required></textarea>
+              </div>
+
+              <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-primary px-4 py-2">
+                  <i class="bi bi-send-fill me-2"></i> Enviar Consulta
+                </button>
+              </div>
+            </div>
+          {% endif %}
+        </form>
+      </div>
+    </div>
+
+    <!-- Right Column: Info & Map -->
+    <div class="col-lg-5">
+      
+      <!-- Info Card -->
+      <div class="card formulario-card p-4 mb-4">
+        <h3 class="h5 fw-bold mb-3">Información Institucional</h3>
+        
+        <div class="d-flex gap-3 mb-3">
+          <div class="blood-type-badge flex-shrink-0" style="width:42px; height:42px;">
+            <i class="bi bi-geo-alt-fill" style="font-size:18px;"></i>
+          </div>
+          <div>
+            <h4 class="h6 fw-bold mb-1">Sede Central de Donación</h4>
+            <p class="small text-secondary mb-0">Av. Principal de la Salud 1240, CABA</p>
+          </div>
+        </div>
+
+        <div class="d-flex gap-3 mb-3">
+          <div class="blood-type-badge flex-shrink-0" style="width:42px; height:42px;">
+            <i class="bi bi-telephone-fill" style="font-size:18px;"></i>
+          </div>
+          <div>
+            <h4 class="h6 fw-bold mb-1">Línea Directa</h4>
+            <p class="small text-secondary mb-0">+1 (234) 567 89 00</p>
+            <p class="small text-muted">Guardia de urgencias las 24 hs</p>
+          </div>
+        </div>
+
+        <div class="d-flex gap-3 mb-3">
+          <div class="blood-type-badge flex-shrink-0" style="width:42px; height:42px;">
+            <i class="bi bi-envelope-fill" style="font-size:18px;"></i>
+          </div>
+          <div>
+            <h4 class="h6 fw-bold mb-1">Email Oficial</h4>
+            <p class="small text-secondary mb-0">blood.center@email.com</p>
+          </div>
+        </div>
+
+        <div class="d-flex gap-3">
+          <div class="blood-type-badge flex-shrink-0" style="width:42px; height:42px;">
+            <i class="bi bi-clock-fill" style="font-size:18px;"></i>
+          </div>
+          <div>
+            <h4 class="h6 fw-bold mb-1">Horarios de Extracción</h4>
+            <p class="small text-secondary mb-0">Lunes a Viernes: 9:00 a 18:00 hs</p>
+            <p class="small text-muted">Sábados: 8:00 a 13:00 hs</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Card -->
+      <div class="p-4 rounded-4 text-white" style="background: linear-gradient(135deg, #2b7cb5 0%, #1b6cb1 100%);">
+        <h4 class="h5 fw-bold text-white mb-2">¿Querés donar hoy mismo?</h4>
+        <p class="small text-white-50 mb-3">
+          Podés solicitar tu turno previo online para evitar esperas y agilizar tu atención en el centro.
+        </p>
+        <a href="{% url 'reservar' %}" class="btn btn-light fw-bold text-primary w-100 py-2">
+          Reservar Turno de Donación
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
 {% endblock contenido %}

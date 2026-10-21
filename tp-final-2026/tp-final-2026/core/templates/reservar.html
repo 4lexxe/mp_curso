@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}Reservar Turno{% endblock title %}
+
+{% block contenido %}
+
+<!-- Encabezado de sección -->
+<section class="bg-white py-4 shadow-sm">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 small">
+                <li class="breadcrumb-item"><a href="{% url 'core:inicio' %}" class="text-decoration-none">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Reservar turno</li>
+            </ol>
+        </nav>
+        <h1 class="h3 fw-bold text-primary mb-1">
+            <i class="bi bi-calendar2-check-fill me-2"></i>Gestión de Turnos
+        </h1>
+        <p class="text-muted mb-0">
+            Completá el formulario de solicitud de cita. Nuestro equipo confirmará la
+            disponibilidad por correo electrónico.
+        </p>
+    </div>
+</section>
+
+<section class="container py-5">
+    <div class="row g-4">
+
+        <!-- ============ FORMULARIO DE SOLICITUD ============ -->
+        <div class="col-lg-8">
+            <div class="card sp-form-card">
+                <div class="card-header bg-primary text-white py-3">
+                    <h2 class="h5 mb-0">
+                        <i class="bi bi-pencil-square me-2"></i>Solicitud de cita médica
+                    </h2>
+                </div>
+                <div class="card-body p-4">
+                    <form action="#" method="post" novalidate>
+                        {% csrf_token %}
+
+                        <!-- Datos de la consulta -->
+                        <h3 class="h6 text-uppercase text-muted border-bottom pb-2 mb-3">
+                            <i class="bi bi-hospital me-1"></i>1. Datos de la consulta
+                        </h3>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label for="especialidad" class="form-label">Especialidad médica <span class="text-danger">*</span></label>
+                                <select class="form-select" id="especialidad" name="especialidad" required>
+                                    <option value="" selected disabled>Seleccioná una especialidad...</option>
+                                    {% for esp in especialidades %}
+                                    <option value="{{ esp|lower }}">{{ esp }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="profesional" class="form-label">Profesional asignado <span class="text-danger">*</span></label>
+                                <select class="form-select" id="profesional" name="profesional" required>
+                                    <option value="" selected disabled>Seleccioná un profesional...</option>
+                                    {% for profe in profesionales %}
+                                    <option value="{{ profe|lower }}">{{ profe }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="fecha" class="form-label">Fecha deseada <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" id="fecha" name="fecha" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="horario" class="form-label">Horario de atención <span class="text-danger">*</span></label>
+                                <select class="form-select" id="horario" name="horario" required>
+                                    <option value="" selected disabled>Seleccioná un horario...</option>
+                                    {% for hora in horarios %}
+                                    <option value="{{ hora }}">{{ hora }} hs</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Datos del paciente -->
+                        <h3 class="h6 text-uppercase text-muted border-bottom pb-2 mb-3">
+                            <i class="bi bi-person-lines-fill me-1"></i>2. Datos del paciente
+                        </h3>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label for="nombre" class="form-label">Nombre <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej.: María" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="apellido" class="form-label">Apellido <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ej.: González" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="dni" class="form-label">DNI <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="dni" name="dni" inputmode="numeric" placeholder="Ej.: 38.456.789" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="email" class="form-label">Correo electrónico <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Ej.: maria@email.com" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="telefono" class="form-label">Teléfono de contacto <span class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ej.: +54 9 11 2345-6789" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="observaciones" class="form-label">Observaciones (opcional)</label>
+                                <textarea class="form-control" id="observaciones" name="observaciones" rows="3" placeholder="Contanos brevemente el motivo de la consulta..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="acepto" name="acepto" required>
+                            <label class="form-check-label small text-muted" for="acepto">
+                                Acepto la política de privacidad y el tratamiento de mis datos
+                                personales con fines médicos y administrativos. <span class="text-danger">*</span>
+                            </label>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-sp-cta px-4 fw-semibold">
+                                <i class="bi bi-send-fill me-1"></i>Solicitar turno
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary px-4">
+                                <i class="bi bi-eraser me-1"></i>Limpiar campos
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ PANEL LATERAL INFORMATIVO ============ -->
+        <div class="col-lg-4">
+            <div class="card sp-info-panel mb-4">
+                <div class="card-body p-4">
+                    <h2 class="h6 text-uppercase mb-3" style="color: #7fd6df;">
+                        <i class="bi bi-info-circle-fill me-1"></i>Información de la reserva
+                    </h2>
+
+                    <div class="sp-info-item d-flex align-items-start">
+                        <i class="bi bi-clock-history fs-5 me-3 mt-1"></i>
+                        <div>
+                            <strong class="d-block">Horarios de atención</strong>
+                            <small class="opacity-75">
+                                {{ clinica.horarios.consultorios }}<br>
+                                {{ clinica.horarios.sabados }}
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="sp-info-item d-flex align-items-start">
+                        <i class="bi bi-telephone-fill fs-5 me-3 mt-1"></i>
+                        <div>
+                            <strong class="d-block">Central de turnos</strong>
+                            <small class="opacity-75">{{ clinica.telefono_central }}</small>
+                        </div>
+                    </div>
+
+                    <div class="sp-info-item d-flex align-items-start">
+                        <i class="bi bi-heart-pulse-fill fs-5 me-3 mt-1"></i>
+                        <div>
+                            <strong class="d-block text-danger">Línea de urgencias</strong>
+                            <small class="opacity-75">{{ clinica.telefono_urgencias }}<br>
+                                Guardia 24 horas, todos los días.</small>
+                        </div>
+                    </div>
+
+                    <div class="sp-info-item d-flex align-items-start">
+                        <i class="bi bi-exclamation-triangle-fill fs-5 me-3 mt-1"></i>
+                        <div>
+                            <strong class="d-block">Recordatorio</strong>
+                            <small class="opacity-75">
+                                Presentate 15 minutos antes con DNI y carnet de obra social.
+                                Podés cancelar hasta 4 horas antes del turno.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card sp-card p-4 text-center">
+                <i class="bi bi-shield-check text-primary" style="font-size: 2rem;"></i>
+                <h3 class="h6 fw-bold mt-2">Tus datos están protegidos</h3>
+                <p class="small text-muted mb-0">
+                    Toda la información se maneja bajo secreto profesional y la
+                    Ley de Protección de Datos Personales.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock contenido %}

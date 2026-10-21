@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "MP_CURSO",
+			"path": "."
+		},
+		{
+			"name": "tp-final-2026",
+			"path": "../../Downloads/tp-final-2026/tp-final-2026"
+		}
+	],
+  "settings": {
+    "git.ignoreLimitWarning": true
+  }
+}

@@ -1,0 +1,268 @@
+/* ============================================================
+   Clínica SaludPlus - Hoja de estilos institucional (Sprint 1)
+   Paleta de colores médica:
+     Primario (azul clínico) : #0B5FA5
+     Acento (turquesa)       : #12A4B4
+     Urgencia (rojo suave)   : #DC3545
+     Éxito (verde)           : #198754
+     Fondo claro             : #F4F7FA
+   ============================================================ */
+
+:root {
+    --sp-primary: #0B5FA5;
+    --sp-primary-dark: #08457a;
+    --sp-accent: #12A4B4;
+    --sp-accent-soft: #e6f7f9;
+    --sp-urgency: #DC3545;
+    --sp-success: #198754;
+    --sp-bg-light: #F4F7FA;
+    --sp-gray: #6c757d;
+}
+
+body {
+    background-color: var(--sp-bg-light);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #212529;
+}
+
+/* ---------- Franja superior ---------- */
+.sp-topbar {
+    background: linear-gradient(90deg, var(--sp-primary-dark), var(--sp-primary));
+}
+
+/* ---------- Navbar / marca ---------- */
+.sp-navbar {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.sp-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sp-primary), var(--sp-accent));
+    color: #fff;
+    font-size: 1.25rem;
+    box-shadow: 0 3px 8px rgba(11, 95, 165, 0.35);
+}
+
+.sp-brand-text {
+    line-height: 1.1;
+    font-size: 1.15rem;
+}
+
+.sp-slogan {
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+}
+
+.sp-navbar .nav-link {
+    font-weight: 500;
+    color: #343a40;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.4rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sp-navbar .nav-link:hover {
+    color: var(--sp-primary);
+    background-color: var(--sp-accent-soft);
+}
+
+.sp-navbar .nav-link.active {
+    color: #fff;
+    background-color: var(--sp-primary);
+}
+
+.btn-sp-cta {
+    background: linear-gradient(135deg, var(--sp-accent), var(--sp-primary));
+    color: #fff;
+    border: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-sp-cta:hover,
+.btn-sp-cta.active {
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(11, 95, 165, 0.4);
+}
+
+/* ---------- Hero ---------- */
+.sp-hero {
+    background:
+        linear-gradient(120deg, rgba(8, 69, 122, 0.92), rgba(18, 164, 180, 0.75)),
+        url("https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+    color: #fff;
+    padding: 5rem 0;
+}
+
+.sp-hero h1 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.sp-hero-badge {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(4px);
+}
+
+/* ---------- Secciones ---------- */
+.sp-section-title {
+    color: var(--sp-primary);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.6rem;
+    margin-bottom: 2rem;
+}
+
+.sp-section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 64px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--sp-primary), var(--sp-accent));
+}
+
+.sp-section-title.text-center::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ---------- Cards ---------- */
+.sp-card {
+    border: none;
+    border-radius: 0.9rem;
+    box-shadow: 0 4px 16px rgba(33, 37, 41, 0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sp-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(11, 95, 165, 0.15);
+}
+
+.sp-card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 0.8rem;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--sp-accent-soft), #d3eef2);
+    color: var(--sp-primary);
+}
+
+.sp-card-especialidad .card-header-sp {
+    background: linear-gradient(135deg, var(--sp-primary), var(--sp-accent));
+    color: #fff;
+    font-weight: 600;
+}
+
+.sp-avatar {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+}
+
+/* ---------- Badges de estado ---------- */
+.badge-agenda-abierta {
+    background-color: var(--sp-success);
+}
+
+.badge-consultorio-completo {
+    background-color: var(--sp-urgency);
+}
+
+/* ---------- Formularios ---------- */
+.sp-form-card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 8px 28px rgba(33, 37, 41, 0.1);
+}
+
+.sp-form-card .form-label {
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--sp-accent);
+    box-shadow: 0 0 0 0.2rem rgba(18, 164, 180, 0.25);
+}
+
+/* ---------- Panel institucional / contacto ---------- */
+.sp-info-panel {
+    background: linear-gradient(160deg, var(--sp-primary-dark), var(--sp-primary));
+    color: #fff;
+    border-radius: 1rem;
+    height: 100%;
+}
+
+.sp-info-panel .sp-info-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.9rem 0;
+}
+
+.sp-info-panel .sp-info-item:last-child {
+    border-bottom: none;
+}
+
+.sp-map-container {
+    border-radius: 0 0 1rem 1rem;
+    overflow: hidden;
+    min-height: 220px;
+    background: #dee2e6;
+}
+
+/* ---------- Footer ---------- */
+.sp-footer {
+    background: linear-gradient(160deg, #0d2137, #08457a);
+}
+
+.sp-footer-title {
+    color: var(--sp-accent);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+}
+
+.sp-footer-list li {
+    line-height: 1.4;
+}
+
+.sp-footer a.btn-circle,
+.sp-footer .btn.rounded-circle {
+    width: 2rem;
+    height: 2rem;
+    line-height: 1.4;
+    padding: 0;
+}
+
+/* ---------- Responsive refinements ---------- */
+@media (max-width: 991.98px) {
+    .sp-hero {
+        padding: 3rem 0;
+    }
+
+    .sp-navbar .nav-link.active {
+        background-color: transparent;
+        color: var(--sp-primary);
+        border-left: 3px solid var(--sp-primary);
+        border-radius: 0;
+    }
+}

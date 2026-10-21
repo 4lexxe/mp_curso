@@ -1,3 +1,4 @@
+
 def generar_fichero():
   lista = [
     "2025-09-01;Rayuela;Julio Cortázar;Ana Gutierrez;devuelto\n",

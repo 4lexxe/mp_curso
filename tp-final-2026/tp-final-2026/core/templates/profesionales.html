@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Staff Profesional{% endblock title %}
+
+{% block contenido %}
+
+<!-- Encabezado de sección -->
+<section class="bg-white py-4 shadow-sm">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 small">
+                <li class="breadcrumb-item"><a href="{% url 'core:inicio' %}" class="text-decoration-none">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Profesionales</li>
+            </ol>
+        </nav>
+        <h1 class="h3 fw-bold text-primary mb-1">
+            <i class="bi bi-people-fill me-2"></i>Staff Profesional
+        </h1>
+        <p class="text-muted mb-0">
+            Médicos y prestadores de la Clínica SaludPlus. Cada ficha indica especialidad,
+            matrícula profesional y el estado actual de su agenda.
+        </p>
+    </div>
+</section>
+
+<!-- Leyenda de estados -->
+<section class="container pt-4">
+    <div class="d-flex flex-wrap gap-3 small">
+        <span class="badge badge-agenda-abierta rounded-pill px-3 py-2">
+            <i class="bi bi-check-circle-fill me-1"></i>Agenda Abierta
+        </span>
+        <span class="badge badge-consultorio-completo rounded-pill px-3 py-2">
+            <i class="bi bi-x-circle-fill me-1"></i>Consultorio Completo
+        </span>
+    </div>
+</section>
+
+<!-- Grilla de tarjetas del staff -->
+<section class="container py-4 pb-5">
+    <div class="row g-4">
+        {% for medico in profesionales %}
+        <div class="col-12 col-sm-6 col-xl-4">
+            <div class="card sp-card text-center">
+                <div class="card-body p-4">
+                    <img src="{{ medico.foto }}"
+                         class="sp-avatar mb-3"
+                         alt="Foto de {{ medico.nombre }}">
+
+                    {% if medico.abierto %}
+                    <span class="badge badge-agenda-abierta rounded-pill mb-2">
+                        <i class="bi bi-check-circle-fill me-1"></i>Agenda Abierta
+                    </span>
+                    {% else %}
+                    <span class="badge badge-consultorio-completo rounded-pill mb-2">
+                        <i class="bi bi-x-circle-fill me-1"></i>Consultorio Completo
+                    </span>
+                    {% endif %}
+
+                    <h5 class="card-title fw-bold mb-1">{{ medico.nombre }}</h5>
+                    <p class="text-muted small mb-2">{{ medico.titulo }}</p>
+
+                    <ul class="list-unstyled small text-start mb-3">
+                        <li class="mb-1">
+                            <i class="bi bi-patch-check-fill text-primary me-2"></i>
+                            <strong>Especialidad:</strong> {{ medico.especialidad }}
+                        </li>
+                        <li class="mb-1">
+                            <i class="bi bi-card-text text-primary me-2"></i>
+                            <strong>Matrícula:</strong> {{ medico.matricula }}
+                        </li>
+                    </ul>
+
+                    {% if medico.abierto %}
+                    <a href="{% url 'core:reservar' %}" class="btn btn-sp-cta btn-sm w-100">
+                        <i class="bi bi-calendar2-check me-1"></i>Reservar con {{ medico.nombre|cut:"Dra. "|cut:"Dr. " }}
+                    </a>
+                    {% else %}
+                    <button class="btn btn-outline-secondary btn-sm w-100" disabled>
+                        <i class="bi bi-calendar-x me-1"></i>Agenda sin turnos disponibles
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock contenido %}

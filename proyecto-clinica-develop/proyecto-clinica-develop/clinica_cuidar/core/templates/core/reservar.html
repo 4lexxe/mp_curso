@@ -7,13 +7,11 @@ Gestión de Turnos | Clínica Horizonte
 {% block contenido %}
 
 <!-- Encabezado de la página. -->
-<section class="cabecera-pagina py-5">
+<section class="page-header-banner">
   <div class="container">
-    <h1 class="fw-bold">Gestión de Turnos</h1>
-    <p class="text-secondary">
-      Completá el formulario para simular
-      una solicitud de turno médico.
-    </p>
+    <span class="hero-tagline">ATENCIÓN ÁGIL Y CUIDADA</span>
+    <h1>Gestión de Turnos y Donaciones</h1>
+    <p>Completá el formulario para solicitar tu turno médico o de donación de sangre.</p>
   </div>
 </section>
 
@@ -27,11 +25,11 @@ Gestión de Turnos | Clínica Horizonte
     <div class="col-lg-8">
 
       <div class="card formulario-card">
-        <div class="card-body p-4">
+        <div class="card-body p-4 p-md-5">
 
-          <h2 class="h4 mb-4">
-            <i class="bi bi-calendar-check"></i>
-            Solicitar turno
+          <h2 class="h4 mb-4 fw-bold">
+            <i class="bi bi-calendar-check text-primary me-2"></i>
+            Solicitar turno o donación
           </h2>
 
           <div class="alert alert-info">
@@ -69,7 +67,13 @@ Gestión de Turnos | Clínica Horizonte
                   <!-- required obliga a seleccionar. -->
                   <select class="form-select" id="especialidad" name="especialidad" required>
                     <option value="">
-                      Seleccionar...
+                      Seleccionar especialidad o servicio...
+                    </option>
+                    <option value="donacion">
+                      🩸 Donación de Sangre / Aféresis
+                    </option>
+                    <option value="hematologia">
+                      Hematología Clínica
                     </option>
                     <option value="cardiologia">
                       Cardiología
@@ -80,8 +84,8 @@ Gestión de Turnos | Clínica Horizonte
                     <option value="traumatologia">
                       Traumatología
                     </option>
-                    <option value="odontologia">
-                      Odontología
+                    <option value="laboratorio">
+                      Análisis Clínicos y Laboratorio
                     </option>
                     <option value="oftalmologia">
                       Oftalmología
@@ -91,21 +95,24 @@ Gestión de Turnos | Clínica Horizonte
 
                 <div class="col-md-6">
                   <label for="profesional" class="form-label">
-                    Profesional
+                    Profesional o Servicio
                   </label>
 
                   <select class="form-select" id="profesional" name="profesional" required>
                     <option value="">
-                      Seleccionar...
+                      Seleccionar profesional...
+                    </option>
+                    <option value="banco">
+                      Equipo de Hemoterapia & Donaciones
                     </option>
                     <option value="mariana">
-                      Dra. Mariana Ejemplo
+                      Dra. Mariana Gómez (Hematología)
                     </option>
                     <option value="nicolas">
-                      Dr. Nicolás Ejemplo
+                      Dr. Nicolás Rossi (Cardiología)
                     </option>
                     <option value="lucia">
-                      Dra. Lucía Ejemplo
+                      Dra. Lucía Fernández (Pediatría)
                     </option>
                   </select>
                 </div>
