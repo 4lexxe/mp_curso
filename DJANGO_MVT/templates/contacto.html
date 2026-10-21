@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}TechNova – Contacto{% endblock %}
+
+{% block content %}
+<!-- ================= CABECERA DE CONTACTO ================= -->
+<section class="py-5 bg-dark text-white text-center">
+  <div class="container py-2">
+    <span class="badge bg-primary px-3 py-2 rounded-pill fw-semibold mb-3">
+      <i class="bi bi-headset me-1"></i> ATENCIÓN Y ASESORAMIENTO
+    </span>
+    <h1 class="display-4 fw-bold mb-3">Ponete en Contacto con TechNova</h1>
+    <p class="lead text-light opacity-75 mx-auto" style="max-width: 700px;">
+      Estamos para responder tus preguntas sobre presupuestos de PCs gamer, compatibilidad de componentes, disponibilidad de stock o logística de envíos.
+    </p>
+  </div>
+</section>
+
+<!-- ================= SECCIÓN PRINCIPAL: INFORMACIÓN Y FORMULARIO ================= -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Columna 1: Información de Contacto Requerida por la Consigna -->
+      <div class="col-12 col-lg-5">
+        <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm h-100 d-flex flex-column">
+          <span class="badge bg-info-subtle text-info-emphasis px-3 py-1 rounded-pill fw-semibold mb-2 align-self-start">
+            CANALES DE ATENCIÓN
+          </span>
+          <h2 class="h3 fw-bold text-dark mb-4">Información de Contacto</h2>
+          <p class="text-muted small mb-4">
+            Podés visitarnos en nuestro showroom o comunicarte a través de cualquiera de nuestros canales oficiales.
+          </p>
+
+          <!-- Tarjetas de datos -->
+          <div class="d-flex flex-column gap-3 mb-4">
+            <!-- Dirección -->
+            <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-light border">
+              <div class="icon-box bg-danger bg-opacity-10 text-danger flex-shrink-0">
+                <i class="bi bi-geo-alt-fill"></i>
+              </div>
+              <div>
+                <strong class="d-block text-dark">Dirección Central</strong>
+                <span class="text-muted small">{{ tienda.direccion }}</span>
+              </div>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-light border">
+              <div class="icon-box bg-primary bg-opacity-10 text-primary flex-shrink-0">
+                <i class="bi bi-telephone-fill"></i>
+              </div>
+              <div>
+                <strong class="d-block text-dark">Teléfono de Oficina</strong>
+                <a href="tel:{{ tienda.telefono }}" class="text-decoration-none text-muted small">
+                  {{ tienda.telefono }}
+                </a>
+              </div>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-light border">
+              <div class="icon-box bg-success bg-opacity-10 text-success flex-shrink-0">
+                <i class="bi bi-whatsapp"></i>
+              </div>
+              <div>
+                <strong class="d-block text-dark">WhatsApp Ventas</strong>
+                <a href="https://wa.me/5491198765432" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-muted small">
+                  {{ tienda.whatsapp }}
+                </a>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-light border">
+              <div class="icon-box bg-info bg-opacity-10 text-info flex-shrink-0">
+                <i class="bi bi-envelope-fill"></i>
+              </div>
+              <div>
+                <strong class="d-block text-dark">Correo Electrónico</strong>
+                <a href="mailto:{{ tienda.email }}" class="text-decoration-none text-muted small">
+                  {{ tienda.email }}
+                </a>
+              </div>
+            </div>
+
+            <!-- Horarios -->
+            <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-light border">
+              <div class="icon-box bg-warning bg-opacity-10 text-warning flex-shrink-0">
+                <i class="bi bi-clock-fill"></i>
+              </div>
+              <div>
+                <strong class="d-block text-dark">Horarios de Atención</strong>
+                <span class="text-muted small">{{ tienda.horarios }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Redes Sociales -->
+          <div class="mt-auto pt-3 border-top">
+            <h6 class="fw-bold text-dark small mb-2">Seguinos en nuestras redes</h6>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle" style="width: 36px; height: 36px;" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle" style="width: 36px; height: 36px;" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle" style="width: 36px; height: 36px;" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="btn btn-outline-secondary btn-sm rounded-circle" style="width: 36px; height: 36px;" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna 2: Formulario de Contacto Requerido por la Consigna -->
+      <div class="col-12 col-lg-7">
+        <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <div class="bg-primary text-white rounded-3 p-2">
+              <i class="bi bi-chat-square-text-fill fs-5"></i>
+            </div>
+            <h2 class="h3 fw-bold text-dark mb-0">Formulario de Contacto</h2>
+          </div>
+          <p class="text-muted small mb-4">
+            Completá los campos a continuación y un asesor técnico se comunicará con vos a la brevedad.
+          </p>
+
+          <!-- Formulario funcional con POST y CSRF en Django -->
+          <form method="post" action="{% url 'contacto' %}" class="needs-validation" novalidate>
+            {% csrf_token %}
+
+            <!-- Campo 1: Nombre (Requerido) -->
+            <div class="mb-3">
+              <label for="nombre" class="form-label fw-semibold text-dark">
+                Nombre y Apellido <span class="text-danger">*</span>
+              </label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0 text-muted">
+                  <i class="bi bi-person-fill"></i>
+                </span>
+                <input type="text"
+                       class="form-control border-start-0 ps-0"
+                       id="nombre"
+                       name="nombre"
+                       placeholder="Ej. Juan Pérez"
+                       required>
+              </div>
+              <div class="form-text small">Ingresá tu nombre completo.</div>
+            </div>
+
+            <!-- Campo 2: Email (Requerido) -->
+            <div class="mb-3">
+              <label for="email" class="form-label fw-semibold text-dark">
+                Correo Electrónico <span class="text-danger">*</span>
+              </label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0 text-muted">
+                  <i class="bi bi-envelope-at-fill"></i>
+                </span>
+                <input type="email"
+                       class="form-control border-start-0 ps-0"
+                       id="email"
+                       name="email"
+                       placeholder="ejemplo@correo.com"
+                       required>
+              </div>
+              <div class="form-text small">Nunca compartiremos tu correo con terceros.</div>
+            </div>
+
+            <!-- Campo Opcional: Asunto / Tipo de consulta -->
+            <div class="mb-3">
+              <label for="asunto" class="form-label fw-semibold text-dark">
+                Asunto de la Consulta
+              </label>
+              <select class="form-select" id="asunto" name="asunto">
+                <option value="Consulta General" selected>Consulta General</option>
+                <option value="Presupuesto de PC Gamer / Edición">Presupuesto de PC Gamer / Edición</option>
+                <option value="Duda sobre compatibilidad o producto">Duda sobre compatibilidad o producto</option>
+                <option value="Estado de mi pedido / Envío">Estado de mi pedido / Envío</option>
+                <option value="Garantía y Servicio Técnico">Garantía y Servicio Técnico</option>
+              </select>
+            </div>
+
+            <!-- Campo 3: Mensaje (Requerido) -->
+            <div class="mb-4">
+              <label for="mensaje" class="form-label fw-semibold text-dark">
+                Mensaje <span class="text-danger">*</span>
+              </label>
+              <textarea class="form-control"
+                        id="mensaje"
+                        name="mensaje"
+                        rows="5"
+                        placeholder="Escribí aquí tu mensaje, duda o solicitud de presupuesto..."
+                        required></textarea>
+              <div class="form-text small">Detallá tu consulta para que podamos brindarte la mejor respuesta.</div>
+            </div>
+
+            <!-- Botón de Envío -->
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary btn-lg rounded-pill fw-semibold shadow-sm py-2">
+                <i class="bi bi-send-fill me-2"></i> Enviar Mensaje
+              </button>
+            </div>
+          </form>
+
+          <!-- Compromiso de respuesta rápida -->
+          <div class="d-flex align-items-center gap-2 mt-4 pt-3 border-top text-muted small justify-content-center">
+            <i class="bi bi-shield-check text-success fs-5"></i>
+            <span>Respuesta garantizada en menos de 24 horas hábiles.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pokédex con MySQL</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+      background: #0066cc;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-save {
+      background: #28a745;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .msg {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+    }
+
+    .msg-success {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .msg-info {
+      background: #d1ecf1;
+      color: #0c5460;
+    }
+
+    .error {
+      color: #dc3545;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 style="text-align: center;">Pokédex Django + MySQL</h1>
+
+  <!-- Notificaciones Django -->
+  {% if messages %}
+  <div style="max-width: 900px; margin: 0 auto 15px auto;">
+    {% for m in messages %}
+    <div class="msg {% if m.tags == 'success' %}msg-success{% else %}msg-info{% endif %}">{{ m }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="container">
+    <!-- Columna Izquierda: Búsqueda y Formulario de Guardado -->
+    <div class="card">
+      <h2>Buscar en PokéAPI</h2>
+      <form method="GET" action="{% url 'buscar_pokemon' %}">
+        <input type="text" name="nombre" placeholder="Ej: gengar, squirtle, mew" required
+          style="padding: 7px; width: 65%;">
+        <button type="submit" class="btn">Buscar</button>
+      </form>
+
+      {% if error %}
+      <p class="error">{{ error }}</p>
+      {% endif %}
+
+      {% if pokemon %}
+      <div style="text-align: center; margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px;">
+        <img src="{{ pokemon.imagen }}" alt="{{ pokemon.nombre }}" width="120">
+        <h3>#{{ pokemon.poke_id }} {{ pokemon.nombre }}</h3>
+        <p><strong>Tipos:</strong> {{ pokemon.tipos }}</p>
+        <p><strong>Altura:</strong> {{ pokemon.altura }} m | <strong>Peso:</strong> {{ pokemon.peso }} kg</p>
+
+        <!-- Formulario Django con campos ocultos para registrar en DB -->
+        <form method="POST" action="{% url 'buscar_pokemon' %}">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-save">Guardar en MySQL</button>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Columna Derecha: Registros en MySQL -->
+    <div class="card">
+      <h2>Guardados en MySQL ({{ guardados.count }})</h2>
+      {% if guardados %}
+      <table>
+        <thead>
+          <tr>
+            <th>Img</th>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Tipos</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in guardados %}
+          <tr>
+            <td><img src="{{ p.imagen }}" width="35" alt="{{ p.nombre }}"></td>
+            <td>{{ p.poke_id }}</td>
+            <td><strong>{{ p.nombre }}</strong></td>
+            <td>{{ p.tipos }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p style="color: #666;">No hay Pokémon guardados aún en la base de datos.</p>
+      {% endif %}
+    </div>
+  </div>
+
+</body>
+
+</html>

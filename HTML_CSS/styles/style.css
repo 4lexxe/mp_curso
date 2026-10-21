@@ -1,0 +1,104 @@
+/* 
+<body>
+  <div class="contenedor">
+    <div class="caja">caja 1</div>
+    <div class="caja">caja 2</div>
+    <div class="caja">caja 3</div>
+  </div>
+</body>
+*/
+
+/* display = flexbox */
+.contenedor {
+  display: flex;
+  gap: 20px;
+}
+
+.caja {
+  width: 150px;
+  height: 100px;
+  border: 2px solid black;
+}
+
+
+
+
+/*  <div class="contenedor2">
+    <div class="cajita">grilla1</div>
+    <div class="cajita">grilla 2</div>
+    <div class="cajita">grilla 3</div>
+    <div class="cajita">grilla 4</div>
+    <div class="cajita">grilla 5</div>
+    <div class="cajita">grilla 6</div>
+    <div class="cajita">grilla 7</div>
+    <div class="cajita">grilla 8</div>
+  </div>*/
+
+.contenedor2 {
+  display: grid;
+  margin-top: 40px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cajita {
+  height: 100px;
+  border: 1px solid rgb(255, 0, 0);
+}
+
+
+
+/*<body>
+  <header>
+    <h1>titulo</h1>
+  </header>
+
+  <aside>
+    <h2>barra lateral</h2>
+    <ul>
+      <li>Inicio</li>
+      <li>Productos</li>
+      <li>Contacto</li>
+    </ul>
+  </aside>
+
+  <main>
+    <h2>contenido principal</h2>
+    <p> Este es mi contendio de la pagina web</p>
+  </main>
+
+  <footer>
+    <p>pie de página © todos los derechos reservados</p>
+  </footer>*/
+
+
+body {
+  width: 800px;
+  border: 1px solid black;
+  margin: auto;
+}
+
+header {
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.contenedor {
+  display: flex;
+}
+
+aside {
+  border: 2px solid black;
+  width: 30%;
+  padding: 20px;
+}
+
+main {
+  border: 2px solid black;
+  width: 70%;
+  padding: 20px;
+}
+
+footer {
+  border: 2px solid black;
+  padding: 20px;
+}

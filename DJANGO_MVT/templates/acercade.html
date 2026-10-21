@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}TechNova – Acerca de{% endblock %}
+
+{% block content %}
+<!-- ================= CABECERA DE LA PÁGINA ================= -->
+<section class="py-5 bg-dark text-white text-center position-relative overflow-hidden">
+  <div class="container py-3">
+    <span class="badge bg-primary px-3 py-2 rounded-pill fw-semibold mb-3">
+      <i class="bi bi-people-fill me-1"></i> CONOCENOS
+    </span>
+    <h1 class="display-4 fw-bold mb-3">Acerca de TechNova</h1>
+    <p class="lead text-light opacity-75 max-w-700 mx-auto" style="max-width: 750px;">
+      Conocé nuestra historia, nuestros valores y el equipo de profesionales detrás de la tienda de tecnología y comercio electrónico más confiable.
+    </p>
+  </div>
+</section>
+
+<!-- ================= DESCRIPCIÓN DEL NEGOCIO & HISTORIA DE LA TIENDA ================= -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <!-- Columna 1: Descripción e Historia -->
+      <div class="col-12 col-lg-7">
+        <!-- Descripción del negocio requerida por la consigna -->
+        <div class="mb-4">
+          <span class="badge bg-info-subtle text-info-emphasis px-3 py-1 rounded-pill fw-semibold mb-2">
+            QUIÉNES SOMOS
+          </span>
+          <h2 class="fw-bold text-dark mb-3">Descripción del Negocio</h2>
+          <p class="text-muted lead fs-6">
+            <strong>TechNova</strong> es una empresa dedicada al comercio electrónico (E-commerce) de equipamiento informático, computadoras armadas a medida, notebooks de última generación, placas de video, procesadores y periféricos de alto desempeño.
+          </p>
+          <p class="text-muted">
+            Nuestro objetivo es conectar a gamers, creadores de contenido digital, empresas y desarrolladores con la mejor tecnología disponible en el mundo, ofreciendo no solo productos originales con garantía de fábrica, sino también una experiencia de compra transparente, rápida y respaldada por profesionales capacitados.
+          </p>
+        </div>
+
+        <!-- Historia de la tienda requerida por la consigna -->
+        <div class="p-4 bg-light rounded-4 border-start border-4 border-primary shadow-sm">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="bi bi-hourglass-split text-primary fs-4"></i>
+            <h3 class="h4 fw-bold text-dark mb-0">Historia de la Tienda</h3>
+          </div>
+          <p class="text-muted mb-0">
+            {{ historia }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Columna 2: Imagen Ilustrativa de la Empresa / Instalaciones -->
+      <div class="col-12 col-lg-5">
+        <div class="position-relative">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=80"
+               alt="Equipo de TechNova trabajando"
+               class="img-fluid rounded-4 shadow-lg border border-2 border-white">
+          <div class="card position-absolute bottom-0 start-0 m-3 p-3 bg-dark text-white border-0 shadow rounded-3 d-none d-sm-block" style="max-width: 250px;">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-award-fill text-warning fs-3"></i>
+              <div>
+                <small class="text-secondary d-block">Reconocimiento</small>
+                <strong class="small">Líderes en Atención al Cliente 2025</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISIÓN Y MISIÓN ================= -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-semibold mb-2">
+        NUESTROS PILARES
+      </span>
+      <h2 class="fw-bold">Visión y Misión</h2>
+      <p class="text-muted">El propósito y el camino que orientan cada una de nuestras decisiones y productos</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Misión -->
+      <div class="col-12 col-md-6 col-lg-5">
+        <div class="card h-100 border-0 shadow-sm p-4 rounded-4 position-relative overflow-hidden">
+          <div class="position-absolute top-0 end-0 p-3 opacity-10">
+            <i class="bi bi-flag-fill display-1 text-primary"></i>
+          </div>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="icon-box bg-primary text-white shadow-sm">
+              <i class="bi bi-compass-fill"></i>
+            </div>
+            <div>
+              <small class="text-primary fw-bold text-uppercase">Rumbo &amp; Propósito</small>
+              <h3 class="h4 fw-bold mb-0">Nuestra Misión</h3>
+            </div>
+          </div>
+          <p class="text-muted mb-0">
+            {{ mision }}
+          </p>
+          <ul class="list-unstyled mt-3 mb-0 small text-secondary d-flex flex-column gap-1">
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Acceso a tecnología premium y original.</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Envíos en tiempo récord con seguimiento continuo.</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Soporte técnico especializado posventa.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Visión -->
+      <div class="col-12 col-md-6 col-lg-5">
+        <div class="card h-100 border-0 shadow-sm p-4 rounded-4 position-relative overflow-hidden">
+          <div class="position-absolute top-0 end-0 p-3 opacity-10">
+            <i class="bi bi-eye-fill display-1 text-info"></i>
+          </div>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="icon-box bg-info text-dark shadow-sm">
+              <i class="bi bi-lightbulb-fill"></i>
+            </div>
+            <div>
+              <small class="text-info fw-bold text-uppercase">Hacia el Futuro</small>
+              <h3 class="h4 fw-bold mb-0">Nuestra Visión</h3>
+            </div>
+          </div>
+          <p class="text-muted mb-0">
+            {{ vision }}
+          </p>
+          <ul class="list-unstyled mt-3 mb-0 small text-secondary d-flex flex-column gap-1">
+            <li><i class="bi bi-check-circle-fill text-info me-2"></i> Innovación constante en la experiencia de compra en línea.</li>
+            <li><i class="bi bi-check-circle-fill text-info me-2"></i> Comunidad tecnológica activa y fidelizada.</li>
+            <li><i class="bi bi-check-circle-fill text-info me-2"></i> Expansión regional con sostenibilidad y confiabilidad.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EQUIPO DE TRABAJO ================= -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-secondary-subtle text-secondary px-3 py-2 rounded-pill fw-semibold mb-2">
+        TALENTO HUMANO
+      </span>
+      <h2 class="fw-bold">Equipo de Trabajo</h2>
+      <p class="text-muted">Conocé a los profesionales apasionados que hacen posible cada experiencia en TechNova</p>
+    </div>
+
+    <!-- Cards del Equipo de Trabajo -->
+    <div class="row g-4">
+      {% for miembro in equipo %}
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card team-card h-100 text-center">
+          <!-- Banner superior del card -->
+          <div class="team-banner"></div>
+
+          <!-- Foto del integrante requerida por la consigna -->
+          <div class="d-flex justify-content-center">
+            <img src="{{ miembro.imagen }}" alt="{{ miembro.nombre }}" class="team-avatar">
+          </div>
+
+          <!-- Datos básicos de cada integrante requeridos por la consigna -->
+          <div class="card-body p-4 pt-3 d-flex flex-column">
+            <h4 class="h5 fw-bold text-dark mb-1">{{ miembro.nombre }}</h4>
+            <span class="badge bg-primary-subtle text-primary fw-semibold mb-2 align-self-center">
+              {{ miembro.cargo }}
+            </span>
+            <small class="text-secondary fw-semibold mb-2 d-block">
+              <i class="bi bi-gear-fill me-1"></i> {{ miembro.especialidad }}
+            </small>
+            <p class="card-text text-muted small mb-3 flex-grow-1">
+              {{ miembro.bio }}
+            </p>
+
+            <div class="border-top pt-2 mt-auto">
+              <a href="mailto:{{ miembro.email }}" class="small text-decoration-none text-muted d-inline-flex align-items-center gap-1">
+                <i class="bi bi-envelope-at text-primary"></i> {{ miembro.email }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIDEO DE YOUTUBE (TECNOLOGÍA / E-COMMERCE) ================= -->
+<section class="py-5 bg-dark text-white">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        <div class="text-center mb-4">
+          <span class="badge bg-danger px-3 py-2 rounded-pill fw-semibold mb-2">
+            <i class="bi bi-youtube me-1"></i> VIDEO MULTIMEDIA
+          </span>
+          <h2 class="fw-bold text-white">Tecnología y Comercio Electrónico</h2>
+          <p class="text-light opacity-75">
+            Explorá cómo la tecnología moderna, la nube y la inteligencia artificial están revolucionando el comercio digital y las compras online.
+          </p>
+        </div>
+
+        <!-- Video de YouTube embebido con ratio responsive de Bootstrap -->
+        <div class="video-card">
+          <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-lg border border-secondary">
+            <iframe
+              src="https://www.youtube.com/embed/{{ video_youtube_id }}?rel=0"
+              title="Video de Tecnología y Comercio Electrónico"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="mt-3 p-2 d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 text-secondary small">
+            <div>
+              <i class="bi bi-info-circle text-info me-1"></i>
+              <span>Video educativo sobre la evolución del comercio digital y tecnologías de vanguardia.</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v={{ video_youtube_id }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm rounded-pill px-3">
+              <i class="bi bi-box-arrow-up-right me-1"></i> Ver en YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

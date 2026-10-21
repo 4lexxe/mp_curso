@@ -1,0 +1,271 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Gestión de Turnos | Clínica Horizonte
+{% endblock %}
+
+{% block contenido %}
+
+<!-- Encabezado de la página. -->
+<section class="cabecera-pagina py-5">
+  <div class="container">
+    <h1 class="fw-bold">Gestión de Turnos</h1>
+    <p class="text-secondary">
+      Completá el formulario para simular
+      una solicitud de turno médico.
+    </p>
+  </div>
+</section>
+
+<div class="container py-5">
+  <div class="row g-4">
+
+    <!--
+        col-lg-8: ocupa 8 de las 12 columnas de Bootstrap.
+        En celulares ocupa el ancho completo.
+        -->
+    <div class="col-lg-8">
+
+      <div class="card formulario-card">
+        <div class="card-body p-4">
+
+          <h2 class="h4 mb-4">
+            <i class="bi bi-calendar-check"></i>
+            Solicitar turno
+          </h2>
+
+          <div class="alert alert-info">
+            Formulario de demostración.
+            No se registran turnos reales.
+          </div>
+
+          <!--
+                    method="post": método HTTP habitual
+                    para enviar formularios a un servidor.
+
+                    csrf_token: protección de Django contra
+                    falsificación de solicitudes.
+
+                    En Sprint 1, nuestro JavaScript impide
+                    el envío porque todavía no hay backend.
+                    -->
+          <form method="post" id="formulario-turno" data-demo-form data-demo-type="turno">
+
+            {% csrf_token %}
+
+            <!-- SECCIÓN 1: Datos de la cita. -->
+            <fieldset>
+              <legend class="h5">
+                1. Datos de la cita
+              </legend>
+
+              <div class="row g-3 mt-1">
+
+                <div class="col-md-6">
+                  <label for="especialidad" class="form-label">
+                    Especialidad médica
+                  </label>
+
+                  <!-- required obliga a seleccionar. -->
+                  <select class="form-select" id="especialidad" name="especialidad" required>
+                    <option value="">
+                      Seleccionar...
+                    </option>
+                    <option value="cardiologia">
+                      Cardiología
+                    </option>
+                    <option value="pediatria">
+                      Pediatría
+                    </option>
+                    <option value="traumatologia">
+                      Traumatología
+                    </option>
+                    <option value="odontologia">
+                      Odontología
+                    </option>
+                    <option value="oftalmologia">
+                      Oftalmología
+                    </option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="profesional" class="form-label">
+                    Profesional
+                  </label>
+
+                  <select class="form-select" id="profesional" name="profesional" required>
+                    <option value="">
+                      Seleccionar...
+                    </option>
+                    <option value="mariana">
+                      Dra. Mariana Ejemplo
+                    </option>
+                    <option value="nicolas">
+                      Dr. Nicolás Ejemplo
+                    </option>
+                    <option value="lucia">
+                      Dra. Lucía Ejemplo
+                    </option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="turno-fecha" class="form-label">
+                    Fecha deseada
+                  </label>
+
+                  <!--
+                                    type=date: muestra el calendario
+                                    nativo del navegador.
+                                    -->
+                  <input type="date" class="form-control" id="turno-fecha" name="fecha" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="horario" class="form-label">
+                    Horario
+                  </label>
+
+                  <select class="form-select" id="horario" name="horario" required>
+                    <option value="">
+                      Seleccionar...
+                    </option>
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                  </select>
+                  <div class="form-text">
+                    Horarios ilustrativos.
+                  </div>
+                </div>
+
+              </div>
+            </fieldset>
+
+            <hr class="my-4">
+
+            <!-- SECCIÓN 2: Datos del paciente. -->
+            <fieldset>
+              <legend class="h5">
+                2. Datos del paciente
+              </legend>
+
+              <div class="row g-3 mt-1">
+
+                <div class="col-md-6">
+                  <label for="nombre" class="form-label">
+                    Nombre
+                  </label>
+                  <input type="text" class="form-control" id="nombre" name="nombre" autocomplete="given-name"
+                    maxlength="80" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="apellido" class="form-label">
+                    Apellido
+                  </label>
+                  <input type="text" class="form-control" id="apellido" name="apellido" autocomplete="family-name"
+                    maxlength="80" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="dni" class="form-label">
+                    DNI
+                  </label>
+
+                  <!--
+                                    pattern: acepta 7 u 8 números.
+                                    inputmode: muestra teclado numérico
+                                    en celulares.
+                                    -->
+                  <input type="text" class="form-control" id="dni" name="dni" inputmode="numeric" pattern="[0-9]{7,8}"
+                    maxlength="8" title="Ingresá 7 u 8 números sin puntos" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="telefono" class="form-label">
+                    Teléfono
+                  </label>
+
+                  <input type="tel" class="form-control" id="telefono" name="telefono" autocomplete="tel" maxlength="25"
+                    required>
+                </div>
+
+                <div class="col-12">
+                  <label for="email" class="form-label">
+                    Correo electrónico
+                  </label>
+
+                  <!--
+                                    type=email valida el formato
+                                    básico del correo.
+                                    -->
+                  <input type="email" class="form-control" id="email" name="email" autocomplete="email" required>
+                </div>
+
+              </div>
+            </fieldset>
+
+            <!-- Botones del formulario. -->
+            <div class="d-flex flex-wrap gap-2 mt-4">
+
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-circle"></i>
+                Probar solicitud
+              </button>
+
+              <button type="reset" class="btn btn-outline-secondary">
+                Limpiar
+              </button>
+
+            </div>
+
+            <!--
+                        JavaScript hará visible este mensaje.
+                        role=status permite anunciarlo a
+                        los lectores de pantalla.
+                        -->
+            <div class="alert alert-success mt-3 d-none" data-demo-message role="status"></div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel lateral explicativo. -->
+    <aside class="col-lg-4">
+      <div class="card formulario-card">
+        <div class="card-body p-4">
+
+          <h2 class="h5">¿Cómo solicitar un turno?</h2>
+
+          <ol class="ps-3">
+            <li class="mb-3">
+              Seleccioná la especialidad médica.
+            </li>
+            <li class="mb-3">
+              Elegí el profesional.
+            </li>
+            <li class="mb-3">
+              Indicá la fecha y el horario.
+            </li>
+            <li class="mb-3">
+              Completá los datos del paciente.
+            </li>
+          </ol>
+
+          <div class="alert alert-warning mb-0">
+            Sprint 1: utilizá datos ficticios.
+            No existe disponibilidad real.
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+{% endblock %}

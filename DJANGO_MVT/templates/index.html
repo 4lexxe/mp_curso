@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}TechNova - Tienda de Tecnología{% endblock %}
+
+{% block content %}
+<!-- ================= HERO SECTION (IMAGEN PRINCIPAL + TÍTULO + DESCRIPCIÓN) ================= -->
+<section class="hero-section py-5 text-white">
+  <div class="container py-lg-4">
+    <div class="row align-items-center g-4">
+      <!-- Columna Texto: Título Principal y Descripción del Negocio -->
+      <div class="col-12 col-lg-7">
+        <span class="hero-badge mb-3">
+          <i class="bi bi-lightning-charge-fill text-warning me-1"></i> Tecnología de Alto Rendimiento
+        </span>
+
+        <!-- Título principal del sitio requerido por la consigna -->
+        <h1 class="hero-title display-4 fw-bold mb-3">
+          TechNova | Innovación y Tecnología a tu Alcance
+        </h1>
+
+        <!-- Descripción del negocio requerida por la consigna -->
+        <p class="lead text-light opacity-90 mb-4 pe-lg-4">
+          Somos <strong>TechNova</strong>, la tienda en línea líder en comercio electrónico tecnológico. 
+          Especializados en computadoras de alto rendimiento, notebooks gamer, placas de video de última generación, 
+          monitores profesionales y periféricos premium. Brindamos asesoramiento personalizado, garantía oficial 
+          y envíos rápidos y seguros a todo el país.
+        </p>
+
+        <!-- Botones de Acción -->
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#productos-destacados" class="btn btn-primary btn-lg rounded-pill px-4 shadow">
+            <i class="bi bi-cart3 me-2"></i> Ver Promociones
+          </a>
+          <a href="{% url 'acercade' %}" class="btn btn-outline-light btn-lg rounded-pill px-4">
+            <i class="bi bi-building me-2"></i> Conocé la Tienda
+          </a>
+          <a href="{% url 'contacto' %}" class="btn btn-link text-info text-decoration-none d-flex align-items-center gap-1">
+            <span>Contactar soporte</span> <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Indicadores de Confianza -->
+        <div class="row pt-4 mt-3 border-top border-secondary text-secondary g-3">
+          <div class="col-4">
+            <h4 class="text-white fw-bold mb-0">+5.000</h4>
+            <small class="small">Clientes Felices</small>
+          </div>
+          <div class="col-4">
+            <h4 class="text-white fw-bold mb-0">100%</h4>
+            <small class="small">Garantía Oficial</small>
+          </div>
+          <div class="col-4">
+            <h4 class="text-white fw-bold mb-0">24/48 hs</h4>
+            <small class="small">Envíos Rápidos</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Imagen: Imagen Principal del Sitio requerida por la consigna -->
+      <div class="col-12 col-lg-5 text-center">
+        <div class="hero-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80"
+               alt="Imagen Principal TechNova - Hardware y Tecnología"
+               class="hero-img"
+               id="imagen-principal-tienda">
+          <div class="p-3 bg-dark bg-opacity-75 text-start text-white border-top border-secondary">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <small class="text-info fw-bold text-uppercase d-block">Configuraciones 2026</small>
+                <span class="fw-semibold">Equipos Gamer &amp; Estaciones de Trabajo</span>
+              </div>
+              <span class="badge bg-success">En Stock</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BENEFICIOS Y PROPUESTA DE VALOR ================= -->
+<section class="py-4 bg-white border-bottom shadow-sm">
+  <div class="container">
+    <div class="row g-3 text-center">
+      <div class="col-6 col-md-3">
+        <div class="d-flex align-items-center justify-content-center gap-2 p-2">
+          <i class="bi bi-truck text-primary fs-3"></i>
+          <div class="text-start">
+            <h6 class="mb-0 fw-bold">Envíos a todo el país</h6>
+            <small class="text-muted">Despacho en el día</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="d-flex align-items-center justify-content-center gap-2 p-2">
+          <i class="bi bi-shield-check text-success fs-3"></i>
+          <div class="text-start">
+            <h6 class="mb-0 fw-bold">Garantía Total</h6>
+            <small class="text-muted">12 meses directo con marca</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="d-flex align-items-center justify-content-center gap-2 p-2">
+          <i class="bi bi-credit-card-2-front text-info fs-3"></i>
+          <div class="text-start">
+            <h6 class="mb-0 fw-bold">Hasta 12 Cuotas</h6>
+            <small class="text-muted">Promos bancarias activas</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="d-flex align-items-center justify-content-center gap-2 p-2">
+          <i class="bi bi-headset text-warning fs-3"></i>
+          <div class="text-start">
+            <h6 class="mb-0 fw-bold">Soporte Técnico</h6>
+            <small class="text-muted">Asesoramiento de expertos</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BANNER DE PROMOCIONES ESPECIALES ================= -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill fw-semibold mb-2">
+        <i class="bi bi-fire me-1"></i> PROMOCIONES ACTIVAS
+      </span>
+      <h2 class="fw-bold">Beneficios y Descuentos Exclusivos</h2>
+      <p class="text-muted">Aprovechá las mejores ofertas disponibles esta semana en TechNova</p>
+    </div>
+
+    <div class="row g-4">
+      {% for promo in promociones %}
+      <div class="col-12 col-md-4">
+        <div class="card promo-card h-100 p-4 shadow-sm border-0">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <span class="badge bg-warning text-dark fw-bold px-3 py-1">{{ promo.badge }}</span>
+            <i class="bi bi-stars text-warning fs-4"></i>
+          </div>
+          <h4 class="fw-bold text-white mb-2">{{ promo.titulo }}</h4>
+          <p class="text-light opacity-75 small mb-3">{{ promo.subtitulo }}</p>
+          <a href="{% url 'productos' %}" class="btn btn-outline-info btn-sm rounded-pill mt-auto align-self-start">
+            Aprovechar oferta <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ================= SECCIÓN DESTACANDO PRODUCTOS (REQUERIMIENTO PRINCIPAL) ================= -->
+<section id="productos-destacados" class="py-5 bg-white">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end flex-wrap gap-2 mb-4">
+      <div>
+        <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-semibold mb-2">
+          <i class="bi bi-star-fill text-warning me-1"></i> SELECCIÓN TECHNOVA
+        </span>
+        <h2 class="fw-bold mb-1">Productos Destacados</h2>
+        <p class="text-muted mb-0">Lo más buscado en hardware gamer, informática y periféricos profesionales.</p>
+      </div>
+      <div>
+        <a href="{% url 'productos' %}" class="btn btn-outline-primary rounded-pill px-4">
+          Ver Catálogo Completo <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Grid de Cards de Productos Destacados -->
+    <div class="row g-4">
+      {% for prod in productos_destacados %}
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card tech-card h-100 shadow-sm d-flex flex-column">
+          <!-- Imagen y Badges -->
+          <div class="position-relative overflow-hidden">
+            <img src="{{ prod.imagen }}" class="card-img-top card-img-tech" alt="{{ prod.nombre }}">
+            <span class="position-absolute top-0 start-0 m-3 badge bg-danger fw-bold shadow-sm">
+              {{ prod.badge }}
+            </span>
+            <span class="position-absolute top-0 end-0 m-3 badge bg-dark bg-opacity-75 text-info fw-semibold">
+              {{ prod.categoria }}
+            </span>
+          </div>
+
+          <!-- Cuerpo de la Card -->
+          <div class="card-body d-flex flex-column p-4">
+            <h5 class="card-title fw-bold text-dark mb-2" style="font-size: 1.1rem;">
+              {{ prod.nombre }}
+            </h5>
+            <p class="card-text text-muted small mb-3 flex-grow-1">
+              {{ prod.descripcion }}
+            </p>
+
+            <div class="border-top pt-3 mt-auto">
+              <!-- Precios -->
+              <div class="d-flex align-items-baseline gap-2 mb-2">
+                <span class="fs-4 fw-bold text-primary">${{ prod.precio }}</span>
+                {% if prod.precio_anterior %}
+                <span class="text-muted text-decoration-line-through small">${{ prod.precio_anterior }}</span>
+                <span class="badge bg-success-subtle text-success small">{{ prod.descuento }}</span>
+                {% endif %}
+              </div>
+
+              <!-- Botones de Acción -->
+              <div class="d-flex gap-2">
+                <a href="{% url 'contacto' %}" class="btn btn-primary btn-sm flex-grow-1 rounded-pill">
+                  <i class="bi bi-cart-plus me-1"></i> Comprar
+                </a>
+                <a href="{% url 'productos' %}" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                  <i class="bi bi-eye"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ================= BANNER INVITACIÓN CONTACTO ================= -->
+<section class="py-5 bg-dark text-white text-center">
+  <div class="container py-3">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <i class="bi bi-chat-quote-fill text-info display-4 mb-3 d-block"></i>
+        <h2 class="fw-bold mb-3">¿Buscás armar una PC personalizada o tenés consultas técnicas?</h2>
+        <p class="text-light opacity-75 mb-4">
+          Nuestro equipo de especialistas en hardware está listo para asesorarte sin compromiso. Comunicate con nosotros ahora mismo.
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="{% url 'contacto' %}" class="btn btn-info btn-lg rounded-pill px-4 fw-semibold text-dark">
+            <i class="bi bi-envelope-check me-2"></i> Formulario de Contacto
+          </a>
+          <a href="https://wa.me/5491198765432" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg rounded-pill px-4">
+            <i class="bi bi-whatsapp me-2"></i> WhatsApp Directo
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

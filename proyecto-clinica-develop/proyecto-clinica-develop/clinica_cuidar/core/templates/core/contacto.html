@@ -1,0 +1,12 @@
+{%extends 'core/base.html'%}
+
+{% block contenido %}
+<h2>Formulario de contacto</h2>
+
+<p>Complete el formulario para enviar su consulta</p>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Enviar</button>
+</form>
+{% endblock contenido %}
